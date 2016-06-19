@@ -1,0 +1,119 @@
+<!DOCTYPE html> 
+<html lang="en">  
+<head>    
+	<meta charset="utf-8">    
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">    
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Register New Account</title>    
+    <link rel="stylesheet" type="text/css" href="/mtutor/css/bootstrap.css">
+    <!--[if lt IE 9]>      
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>      
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>    
+    <![endif]-->   
+    <script type="text/javascript">
+    	function validateall()
+    	{
+    		var fieldData = document.getElementById("nameField");
+    		if((pass_check()) && (pattern_check(fieldData)))
+    		{
+    			return false;
+    		}
+    		return true;
+    	}
+    	function pass_check()
+	    	{
+	    	var x = getElementById("confirmField");
+	    	var y = getElementById("passwordField");
+	    	if(!x.value.equals(y.value))
+	    	{
+	    		//<div class="alert alert-success alert-dismissable">    
+	    		//<button type="button" class="close" data-dismiss="alert">&times; </button> </div>
+	    		alert("Password does not match.")
+	    		return false;
+	    	}
+	    	return true;
+    	}
+    	  function pattern_check()
+    	  { 
+    	  	var alphabetregex = /^[A-Za-z]*$/;              
+    	  	if (!fieldData.match(alphabetregex))              
+    	  		{                 
+    	  			alert("Field should have alphabets only");                
+    	  			 return false;            
+				 }             
+				 return true;  
+	       }   
+    </script>   
+</head>  
+<body>        
+    <h1 class = "text-center">Register Here For Free</h1>               
+    <script src="/mtutor/js/jquery.js"></script>
+    <script src="/mtutor/js/bootstrap.js"></script>  
+    <div class="container">
+    	<div class="row">
+    		
+    		<div class="col-md-5 col-xs-4 col-md-offset-7">
+		    	<form class="form-horizontal" action="doRegister.php" method="post">
+    			<div class = "panel panel-default" style="float: right;">
+    				<div class = "panel-heading">
+    					REGISTER
+    				</div>
+    				<div class="panel-body">
+		    				<div class="form-group">
+		    				<label for="nameField" class="col-md-4 col-xs-2">Name</label>
+		    				<div class="col-md-7 col-xs-4">
+		    					<input type="text" class = "form-control" id = "nameField" placeholder="Your name" name="fieldName" required />
+		    				</div>
+		    				</div>
+
+		    				<div class="form-group">
+		    				<label for="emailField" class="col-md-4 col-xs-2">Email-id</label>
+		    				<div class="col-md-7 col-xs-4">
+		    					<input type="email" class = "form-control" id = "emailField" placeholder="Your email-id" name="fieldEmail" required/>
+		    				</div>
+		    				</div>
+
+		    				<div class="form-group">
+		    				<label for="passwordField" class="col-md-4 col-xs-2">Password</label>
+		    				<div class="col-md-7 col-xs-4">
+		    					<input type="password" class = "form-control" id = "passwordField" placeholder="Your password" name="fieldPassword" required maxlength="20" minlength="8"/>
+		    				</div>
+		    				</div>
+
+		    				<div class="form-group">
+		    				<label for="confirmField" class="col-md-4 col-xs-2">Confirm Password</label>
+		    				<div class="col-md-7 col-xs-4">
+		    					<input type="password" class = "form-control" id = "confirmField" placeholder="Confirm your password" name="fieldConfirm" required maxlength="20" minlength="8" />
+		    				</div>
+		    				</div>
+
+		    				<div class="form-group">
+		    				<span class="radio">
+		    				 	<label class= "col-md-4 col-xs-2">   
+		    				 		Tutor <input class="col-md-7 col-xs-4" type="radio" value="Tutor" name = "user" checked/>
+		    				 	</label>
+		    				 
+		    				 	<label class= "col-md-4 col-xs-2">   
+		    				 		Student <input class="col-md-7 col-xs-4" type="radio" value="Student" name = "user">
+		    				 	</label>
+		    				 </span>
+		    				</div>
+
+		    				<div class="form-group">
+		    				<label for="captchaField" class="col-md-4 col-xs-2">Captcha</label>
+		    				<div class="col-md-7 col-xs-4">
+		    					<input type="text" class = "form-control" id = "captchaField" placeholder="Captcha" name="fieldCaptcha" required />
+		    				</div>
+		    				</div>
+		    		</div>
+		    		<div class="panel-footer">
+		    			<button type = "submit" class="btn btn-primary btn-sm" onsubmit="return validateall()">Register </button> 
+		    			<a href = "#" class="pull-right">Login </a>
+		    		</div>
+    			</div>
+    			</form>
+    		</div>
+    	</div>
+    </div>
+</body> 
+</html>
