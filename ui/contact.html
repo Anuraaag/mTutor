@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">    
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">    
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Contact Us</title>    
+    <link rel="stylesheet" type="text/css" href="/mtutor/css/bootstrap.css">
+    <!--[if lt IE 9]>      
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>      
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>    
+    <![endif]-->   
+</head>
+<body>
+	 <h1 class = "text-center">Contact Us</h1>               
+    <script src="/mtutor/js/jquery.js"></script>
+    <script src="/mtutor/js/bootstrap.js"></script> 
+    <div class="container">
+    	<div class="row">
+    		<form class="form-horizontal" action="doQualification.php" method="post">
+    			<div class = "panel panel-default">
+    				<div class = "panel-heading">
+    					Tell your Qualifications
+    				</div>
+    				<div class="panel-body">
+    					<div class="form-group">
+		    				<label for="nameField" class="col-md-3 col-xs-2 col-md-offset-2">Name</label>
+		    				<div class="col-md-7 col-xs-4">
+		    					<input type="text" class = "form-control" id = "nameField" placeholder="Your full name" name="fieldName" required />
+		    				</div>
+		    			</div>
+		    			<div class="form-group">
+		    				<label for="contactField" class="col-md-3 col-xs-2 col-md-offset-2">Contact Number</label>
+		    				<div class="col-md-7 col-xs-4">
+		    					<input type="number" class = "form-control" id = "contactField" placeholder="Your Phone Number" name="fieldContact" required />
+		    				</div>
+		    			</div>
+
+		    			<div class="form-group">
+		    				<label for="emailField" class="col-md-3 col-xs-2 col-md-offset-2">Email-id</label>
+		    				<div class="col-md-7 col-xs-4">
+		    					<input type="email" class = "form-control" id = "emailField" placeholder="Your Email" name="fieldEmail" required/>
+		    				</div>
+		    			</div>
+		    			<div class="form-group">
+		    				<label for="professional" class="col-md-3 col-xs-2 col-md-offset-2">Message</label>
+		    				<div class="col-md-5 col-xs-10">
+		    					<textarea rows="5" cols="50">Please enter your message</textarea>
+		    				</div>
+		    				</div>
+    				</div>
+    				<div class="panel-footer">
+    						<button type = "submit" class="btn btn-primary btn-sm" onsubmit="return validateall()"> Submit </button>
+    				</div>
+    				<h4 style="color:blue;"> <span class="glyphicon glyphicon-map-marker"> Delhi Address </span></h4>
+    				<address>
+    					Nsp
+    					Pocket- A
+    					Sec-17
+    					Delhi
+    				</address>
+    				<h4 style="color:blue;"><span class="glyphicon glyphicon-phone-alt"> Contact Number </span></h4>
+    				<p> (+91) 9060553275</p>
+    				<h4 style="color:blue;"> <span class = "glyphicon glyphicon-comment"> Whatsapp </span></h4>
+    				<p> (+91) 9060552153</p>
+    				<h4 style="color:blue;"> <span class="glyphicon glyphicon-envelope"> Email </span> </h4>
+    				<p> (+91) mtutor@gmail.com </p>
+</body>
+</html>
