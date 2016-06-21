@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">    
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">    
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Dashboard-Student</title>    
+    <link rel="stylesheet" type="text/css" href="/mtutor/css/bootstrap.css">
+    <!--[if lt IE 9]>      
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>      
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>    
+    <![endif]--> 
+</head>
+<body>
+	<script src="/mtutor/js/jquery.js"></script>
+    <script src="/mtutor/js/bootstrap.js"></script>
+    <div class="col-md-9 col-md-offset-3">
+    <div class="container">
+    	<div class="row">
+    		<form class="form-horizontal" action="doQualification.php" method="post">
+    			<div class = "panel panel-default push-left" style="margin-right: 20px;">
+    				<div class = "panel-heading">
+    					Give your Feedback please
+    				</div>
+    				<div class="panel-body">
+    					<div class="form-group">
+		    				<label for="nameField" class="col-md-3 col-xs-2 col-md-offset-2">Name</label>
+		    				<div class="col-md-4 col-xs-4">
+		    					<input type="text" class = "form-control" id = "nameField" placeholder="Your full name" name="fieldName" required />
+		    				</div>
+		    			</div>
+		    			<div class="form-group">
+		    				<label for="contactField" class="col-md-3 col-xs-2 col-md-offset-2">Subject</label>
+		    				<div class="col-md-4 col-xs-4">
+		    					<input type="text" class = "form-control" id = "contactField" placeholder="About a particular subject?" name="fieldContact" />
+		    				</div>
+		    			</div>
+		    			<div class="form-group">
+		    				<label for="contactField" class="col-md-3 col-xs-2 col-md-offset-2">Tutor</label>
+		    				<div class="col-md-4 col-xs-4">
+		    					<input type="text" class = "form-control" id = "contactField" placeholder="About a particular tutor?" name="fieldContact" />
+		    				</div>
+		    			</div>
+
+		    			<div class="form-group">
+		    				<label for="emailField" class="col-md-3 col-xs-2 col-md-offset-2">Email-id</label>
+		    				<div class="col-md-4 col-xs-4">
+		    					<input type="email" class = "form-control" id = "emailField" placeholder="Your Email" name="fieldEmail" required/>
+		    				</div>
+		    			</div>
+		    			<div class="form-group">
+		    				<label for="professional" class="col-md-3 col-xs-2 col-md-offset-2">Your Review</label>
+		    				<div class="col-md-5 col-xs-10">
+		    					<textarea rows="5" cols="50">Please give your honest review</textarea>
+		    				</div>
+		    				</div>
+    				</div>
+    				<div class="panel-footer">
+    						<button type = "submit" class="btn btn-primary btn-sm" onsubmit="return validateall()"> Submit </button>
+    				</div>
+    			</div>	
+    		</form>
+    	</div>
+    </div>
+    </div>		
+</body>
+</html>
