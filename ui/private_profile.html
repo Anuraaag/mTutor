@@ -9,23 +9,20 @@
 <link rel="stylesheet" type="text/css" href="/mtutor/css/mtutor.css">
 <link rel="stylesheet" href="/mtutor/css/font-awesome.min.css">
 <link rel="stylesheet" href="/mtutor/css/bootstrap.min.css">
-<link href="/mtutor/css/bootstrap-editable.css" rel="stylesheet">
+<link rel="stylesheet" href="/mtutor/css/bootstrap-editable.css" >
 
 <!--[if lt IE 9]>
 <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
 <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 <![endif]-->
-
 </head>
-
-
 
 <body>
 	<div class="panel panel-info navbar-fixed-top">
-	 	<div class="panel-heading ">Profile <span style="float:right"> <a href="#"> See Public Profile </a> </span> </div>
+	 	<div class="panel-heading "><b>Profile</b><span style="float:right"> <a href="#" style="margin-right:40px"> Sign Out </a> <a href="#"> See Public Profile </a> </span> </div>
 	</div>
 
-	<div class="row-fluid">
+	<div class="row-fl6id">
 		<div class="col-md-11" style="margin-top:50px">										
 								
 			
@@ -44,12 +41,11 @@
 										
 			<div class="col-md-7 well well-sm" style="margin-top:30px">
 				<div class="col-md-10">
-				<label for="name" style="margin-top:-25px" > Name: </label>
+				<label for="about" style="margin-top:-25px" > Name: </label>
 				</div>
 				<a href="#"><span class="fa fa-pencil pull-right"></span></a>
-				<p id="name" name="name" class="col-md-12"> abc </p>
+				<p id="name" name="name" class="col-md-12"> abc </p>											
 			</div>
-
 
 								
 			<div class="col-md-7 well well-sm" style="margin-top:-10px">
@@ -60,14 +56,16 @@
 				<p id="about" name="about" class="col-md-12"> about the tutor </p>											
 			</div>	
 
+
 			<div class="col-md-2 col-md-offset-1 thumbnail" style="margin-top:-15px;">						
-				<p><b>Profile Completed <span class="glyphicon glyphicon-saved"></span></b> </p>
+				<p style="margin-left:20px"><b>Profile Completed <span class="glyphicon glyphicon-saved"></span></b> </p>
    	 			<div class="progress">
   					<div class="progress progress-bar progress-bar-success progress-bar-striped active"
   					 role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width:80%"> 80% </div>
 				</div>    									
 			</div>		<!-- progress bar end-->							
-									
+			
+
 			<div class="col-md-7 col-md-offset-4 well well-sm" style="margin-top:-95px">
 				<div class="col-md-10">
 				<label for="experience" style="margin-top:-25px" > Experience: </label>
@@ -76,6 +74,7 @@
 				<p id="experience" name="experience" class="col-md-12"> abc </p>
 			</div><br>										
 																																									
+			
 			<div class="col-md-7  col-md-offset-4 well well-sm" style="margin-top:-10px">
 				<div class="col-md-10">
 				<label for="edu_quali" style="margin-top:-25px" > Educational Qualification: </label>
@@ -83,7 +82,8 @@
 				<a href="#"><span class="fa fa-pencil pull-right"></span></a>
 				<p id="edu_quali" name="edu_quali" class="col-md-12"> abc </p>
 			</div><br>
-									
+			
+
 			<div class="col-md-2 col-md-offset-1 thumbnail" style="margin-top:-95px">
                 <ul class="nav nav-pills nav-stacked">    												
     				<li class="active" > <a data-toggle="pill" href="#subjects" style="height:30px"> 
@@ -106,7 +106,8 @@
   										
   			    </ul>
   			</div>	<!-- menu end-->
-  											
+  			
+
   			<form class="form-search col-md-2 col-md-offset-1" style="margin-top:115px ">
   				<div class="input-append thumbnail" style="margin-left:-306px; width:194px">
   					<input type="text" class="span2 search-query" style="height:35px"> <br><br>
@@ -120,6 +121,7 @@
   				<a class="btn btn-lg" href="#"><span class="label label-info">Get Phone Number</span> <span class="glyphicon glyphicon-phone-alt"> </span></a>
   			</div>						<!-- phone number-->
 
+  			
   			<section class="col-md-7 col-md-offset-4 "style="margin-top:-245px; border:1px solid; height:250px"> <p> this is a section where subject, reviews, location, time-slot info could be displayed. </p> </section>			<!-- section end-->
 
 		</div>	
@@ -137,11 +139,11 @@
            		});
 
            		$('#name').editable({
-                           type:  'text',
-                           pk:    1,
-                           name:  'name',
-                           url:   'post.php',  
-                           title: 'Enter Name'
+                           type:'text',
+                           pk:1,
+                           name:'name',
+                           url:'post.php',  
+                           title:'Enter Name'
                         });
             });
 	</script>
