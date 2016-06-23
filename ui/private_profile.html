@@ -5,12 +5,13 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Private Profile</title>
+
 <link rel="stylesheet" type="text/css" href="/mtutor/css/bootstrap.css">
 <link rel="stylesheet" type="text/css" href="/mtutor/css/mtutor.css">
-<link rel="stylesheet" href="/mtutor/css/font-awesome.min.css">
-<link rel="stylesheet" href="/mtutor/css/bootstrap.min.css">
-<link rel="stylesheet" href="/mtutor/css/bootstrap-editable.css" >
-
+<link rel="stylesheet" type="text/css" href="/mtutor/css/timeslot_css.css">
+<link rel="stylesheet" type="text/css" href="/mtutor/css/font-awesome.min.css">
+<link rel="stylesheet" type="text/css" href="/mtutor/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="/mtutor/css/bootstrap-editable.css" >
 <!--[if lt IE 9]>
 <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
 <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
@@ -22,13 +23,12 @@
 	 	<div class="panel-heading "><b>Profile</b><span style="float:right"> <a href="#" style="margin-right:40px"> Sign Out </a> <a href="#"> See Public Profile </a> </span> </div>
 	</div>
 
-		  <div class="row">							
-			
+		<div class="row">							
 			<div class="col-md-3 col-md-offset-2" style="margin-top:80px">
 				
 				<div class="col-md-10">
-				<img src="pro_pic.jpeg" class= "col-md-offset-2 img-thumbnail img-responsive" alt="profile photo">
-				<a href="#"><span class="col-md-1 col-md-offset-7 fa fa-pencil" style="margin-top:-115px; " ></span></a>
+				<img src="pro_pic.jpg" style="width:125px;" class= "col-md-offset-2 img-thumbnail img-responsive" alt="profile photo">
+				<a href="#"><span class="col-md-1 col-md-offset-7 fa fa-pencil" style="margin-top:-120px"  data-toggle="popover" data-trigger="hover" data-content="Edit" ></span></a>
 				</div>
 				
 				<div class="col-md-8 col-md-offset-2" >Tutor's Rating:<br>
@@ -38,123 +38,227 @@
 					<span class="fa fa-star-half-empty"></span>
 					<span class="fa fa-star-o"></span><b><br><br>
 				</div>						
-				
-				<div class="col-md-10 thumbnail">
-				  	<p style="margin-left:25px">Profile Completed <span class="glyphicon glyphicon-saved"></span></b> </p>
-   	 				<div class="progress col-md-10 col-md-offset-1" >
-  						<div class="progress progress-bar progress-bar-success progress-bar-striped active"
-  					 	role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width:80%"> 80% </div>
-					</div>
-				</div>	
-
-				<div class="col-md-10 thumbnail">
-                	<ul class="nav nav-pills nav-stacked">    												
-    					<li class="active" > <a data-toggle="pill" href="#subjects" style="height:30px"> 
-    					<span class="glyphicon glyphicon-book"></span> Subjects</a></li>
-
-    					<li ><a data-toggle="pill" href="#reviews" > 
-    					<span class="glyphicon glyphicon-user"></span> Reviews</a></li>
- 												    
- 				    	<li><a data-toggle="pill" href="#location">
- 						<span class="glyphicon glyphicon-map-marker"></span> Location</a></li>
-
-	    				<li><a data-toggle="pill" href="#time_slots" >	
-    					<span class="glyphicon glyphicon-time"> </span>  Time-Slots </a></li>
-
-    					<li><a data-toggle="pill" href="#find_students">
-    					<span class="glyphicon glyphicon-search"> </span> Find Queries  </a></li>
-    					
-    					<li><a data-toggle="pill" href="#payment_collection">
-    					<span class="glyphicon glyphicon-usd"> </span> Payment Collection </a></li>										
-  				    </ul>
-  				</div> 
-  			
-  				<form class="form-search col-md-10 thumbnail">
-  					<div class="input-append">
-  						<input type="text" class="search-query form-control col-md-10"/><br><br>
-  						<button type="button" class="btn btn-primary">Change Number</button>
-  					</div>
-  				</form>
-  			
-
-  				<div class="col-md-10 well well-lg" >
-						<label for="about" > Address: </label>
-					<a href="#"><span class="fa fa-pencil pull-right"></span></a>
-					<p id="name" name="name" class="col-md-12"> abc </p>											
-				</div>
-
-
-  				<form class="form-search col-md-10 thumbnail">
-  					<div class="input-append">
-  						<input type="text" class="search-query form-control col-md-10"/><br><br>
-  						<button type="button" class="btn btn-warning">Send Message</button>
-  					</div>
-  				</form>
-  			   				  										
-			</div>  <!--end of column 1-->
-
-			<div class="col-md-6">							
-				
-				<div class="col-md-9 well well-md" style="margin-top:80px">
-					<div class="col-md-10">
-						<label for="about"> Name: </label>
-					</div>
-					<a href="#"><span class="fa fa-pencil pull-right"></span></a>
-					<p id="name" name="name" class="col-md-12"> abc </p>											
-				</div>
-								
-				<div class="col-md-9 well well-md">
-					<div class="col-md-10">
-						<label for="about"> About: </label>
-					</div>
-				<a href="#"><span class="fa fa-pencil pull-right"></span></a>
-				<p id="about" name="about" class="col-md-12"> about the tutor </p>											
-			</div>							
 			
 
-			<div class="col-md-9 well well-md">
-				<div class="col-md-10">
-				<label for="experience"> Experience: </label>
+				<div class="col-md-10 thumbnail">
+					  	<p style="text-align:center">Profile Completed </p>
+	   	 				<div class="progress" >
+	  						<div class="progress-bar  progress-bar-success progress-bar-striped active"
+	  					 	role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width:80%">80%</div>
+						</div>
+					</div>
+
+					<!-- progress-->
+
+					<div class="col-md-10 thumbnail">
+	                	<ul class="nav nav-pills nav-stacked">    												
+
+	    					<li ><a data-toggle="pill" href="#reviews" > 
+	    					<span class="glyphicon glyphicon-user"></span> Reviews</a></li>
+	 												    
+	 				    	<li><a data-toggle="pill" href="#location">
+	 						<span class="glyphicon glyphicon-map-marker"></span> Location</a></li>
+
+	    					<li><a data-toggle="pill" href="#find_students">
+	    					<span class="glyphicon glyphicon-search"> </span> Find Queries  </a></li>
+	    					
+	    					<li><a data-toggle="pill" href="#payment_collection">
+	    					<span class="glyphicon glyphicon-usd"> </span> Payment Collection </a></li>										
+	  				    </ul>
+	  				</div> 
+	  			
+	  				<form class="form-search col-md-10 thumbnail">
+	  					<div class="input-append">
+	  						<input type="text" class="search-query form-control col-md-10"/><br><br>
+	  						<button type="button" class="btn btn-primary">Change Number</button>
+	  					</div>
+	  				</form>
+	  			
+
+	  				<div class="col-md-10 well well-sm" >
+							<label> Address: </label>
+						<a href="#"><span class="fa fa-pencil pull-right" data-toggle="popover" data-trigger="hover" data-content="Edit" ></span></a>
+						<textarea class="col-md-12" style="font-size:12px; background-color:WhiteSmoke; border-color:WhiteSmoke" disabled> abc </textarea>											
+					</div>
+
+
+	  				<form class="form-search col-md-10 thumbnail">
+	  					<div class="input-append">
+	  						<input type="text" class="search-query form-control col-md-10"/><br><br>
+	  						<button type="button" class="btn btn-warning">Send Message</button>
+	  					</div>
+	  				</form>
+	  			   				  										
+				</div>  <!--end of column 1-->
+
+				<div class="col-md-6">							
+					
+				<div class="col-md-9 well well-sm" style="margin-top:80px ">
+					<div class="col-md-10">
+						<label> Name:</label>
+				    </div>
+				    <a href="#"><span class="fa fa-pencil pull-right" data-toggle="popover" data-trigger="hover" data-content="Edit" ></span></a>
+				    <textarea id="name" name="name" class="col-md-12" style="background-color:WhiteSmoke; font-size:12px; border-color:WhiteSmoke" disabled> Your Name </textarea>
+					
 				</div>
-				<a href="#"><span class="fa fa-pencil pull-right"></span></a>
-				<p id="experience" name="experience" class="col-md-12"> abc </p>
-			</div>									
-																																									
-			<div class="col-md-9  well well-md">
-				<div class="col-md-10">
-				<label for="edu_quali" style="margin-top:-25px" > Educational Qualification: </label>
+
+									
+				<div class="col-md-9 well well-sm">
+					<div class="col-md-10">
+						<label> About: </label>
+				    </div>
+				    <a href="#"><span class="fa fa-pencil pull-right" data-toggle="popover" data-trigger="hover" data-content="Edit" ></span></a>
+				    <textarea id="about" name="about" class="col-md-12" style="height:80px; font-size:12px; border-color:WhiteSmoke; background-color:WhiteSmoke;" disabled> About Yourself
+				    </textarea>	
+				</div>							
+				
+
+				<div class="col-md-9 well well-sm">
+					<div class="col-md-10">
+						<label> Experience: </label>
+				    </div>
+				    <a href="#"><span class="fa fa-pencil pull-right" data-toggle="popover" data-trigger="hover" data-content="Edit" ></span></a>
+				    <textarea id="experience" name="experience" class="col-md-12" style="font-size:12px; border-color:WhiteSmoke; background-color:WhiteSmoke" disabled> About Your Experience </textarea>
+				</div>									
+													
+
+				<div class="col-md-9 well well-sm">
+					<div class="col-md-10">
+						<label> Educational Qualification: </label>
+				    </div>
+				    <a href="#"><span class="fa fa-pencil pull-right" data-toggle="popover" data-trigger="hover" data-content="Edit" ></span></a>
+				    <textarea id="edu_qual" name="edu_qual" class="col-md-12" style="font-size:12px; border-color:WhiteSmoke; background-color:WhiteSmoke" disabled> Your Educational Qualification </textarea>
+				</div>			
+	  			    
+
+
+				<div class="col-md-9 well well-sm">
+					<div class="col-md-10">
+						<label> Subjects: </label>
+				    </div>
+				    <a href="#"><span class="fa fa-pencil pull-right" data-toggle="popover" data-trigger="hover" data-content="Edit" ></span></a>
+				    <textarea id="subjects" name="subjects" class="col-md-12" style="height:60px; font-size:12px; border-color:WhiteSmoke; background-color:WhiteSmoke" disabled> Subjects You could teach </textarea>
 				</div>
-				<a href="#"><span class="fa fa-pencil pull-right"></span></a>
-				<p id="edu_quali" name="edu_quali" class="col-md-12"> abc </p>
-			</div>			
-  			    
-			<section class="col-md-9" style="border:1px solid; height:400px"> <p> this is a section where subject, reviews, location, time-slot, payment and query info could be displayed. </p> </section>			<!-- section end-->
 
+				
+				<div class="col-md-9 panel panel-default" style="border:1px solid; padding"> 
+					
+					<h5 style="text-align:center">Time Slots Availability</h5>
+					<div class="panel-body col-md-10 col-md-offset-1">
 
+						<table class="tbl">    
+	    				
+		    				<div id="head_nav" class="t1" >
+		    					<tr>
+		   					        <th class="th1">Time</th>
+							        <th class="th1">Mon</th>
+							        <th class="th1">Tue</th>
+							        <th class="th1">Wed</th>
+							        <th class="th1">Thr</th>
+							        <th class="th1">Fri</th>
+							        <th class="th1">Sat</th>
+							        <th class="th1">Sun</th>
+							    </tr>
+							</div>  
 
-  		</div>	
-  	  </div>
+							<div>
+							    <tr>
+							        <th class="th1">Morning</th>
+							        <div class="td1">
+							            <td></td>
+							            <td></td>
+							            <td></td>
+							            <td></td>
+							            <td></td>
+							            <td></td>
+							            <td></td>
+							            </div>					        
+							    </tr>
+
+							    <tr>
+							        <th class="th1">Noon</th>
+							        <div class="td1">
+							            <td></td>
+							            <td></td>
+							            <td></td>
+							            <td></td>
+							            <td></td>
+							            <td></td>
+							            <td></td>
+							        </div>
+							    </tr>
+
+							    <tr>
+							        <th class="th1">Evening</th>
+							        <div class="td1">
+							             <td></td>
+							            <td></td>
+							            <td></td>
+							            <td></td>
+							            <td></td>
+							            <td></td>
+							            <td></td>
+							        </div>
+							    </tr>
+
+							    <tr>
+							        <th class="th1">Night</th>
+							        <div class="td1">
+							             <td></td>
+							            <td></td>
+							            <td></td>
+							            <td></td>
+							            <td></td>
+							            <td></td>
+							            <td></td>
+							        </div>
+							    </tr>
+							</div>
+
+						</table>
+					</div>	  		
+				</div>			<!-- section end-->
+
+  			</div>	
+  	  	</div>
 	
 
-	
-	<script src="/mtutor/js/jquery-1.12.4.js"></script>
-	<script src="/mtutor/js/bootstrap.js"></script>
-	<script src="/mtutor/js/bootstrap.min.js"></script>
-	<script src="/mtutor/js/bootstrap-editable.js"></script>
-	<script>
-			$(document).ready(function() {
-    			$(".nav-pills a").click(function(){
-       				$(this).pill('show');
-           		});
+<script src="/mtutor/js/jquery-1.12.4.js"></script>
+<script src="/mtutor/js/bootstrap.js"></script>
+<script src="/mtutor/js/bootstrap.min.js"></script>
+<script src="/mtutor/js/bootstrap-editable.js"></script>
+<script>
+		$(document).ready(function(){
+    		$(".nav-tabs a").click(function(){
+       			$(this).tab('show');
+       		});
 
-           		$('#name').editable({
+
+   			$('td').click(function() 
+				{
+    			    if ($(this).hasClass('HighLight'))
+        			{ 
+            			$(this).removeClass('HighLight');
+        			}
+        			else
+        			{
+            			$(this).addClass('HighLight');
+        			}
+    			});
+
+
+   			$('[data-toggle="popover"]').popover();
+
+           	
+           	$('#name').editable({
                            type:'text',
                            pk:1,
                            name:'name',
                            url:'post.php',  
                            title:'Enter Name'
                         });
-            });
+           });
+
 	</script>
 
 </body>
