@@ -6,29 +6,20 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Student registration</title>
   <link rel="stylesheet" type="text/css" href="/mtutor/css/bootstrap.css">
-  <link rel="stylesheet" type="text/css" href="/mtutor/css/mtutor.css">
-  <script src="/mtutor/js/jquery.js"></script>
+  <script src="/mtutor/js/jquery-1.12.4.min.js"></script>
 <script src="/mtutor/js/bootstrap.js"></script>
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
-<script src="/mtutor/checkbox_js.js"></script>
+
+
 <script src="/mtutor/js/jquery.sumoselect.js"></script>
     <link href="/mtutor/css/sumoselect.css" rel="stylesheet" />
 
     <script type="text/javascript">
         $(document).ready(function () {
             window.asd = $('.SlectBox').SumoSelect({ csvDispCount: 3, captionFormatAllSelected: "All selected." });
-            window.test = $('.testsel').SumoSelect({okCancelInMulti:true, captionFormatAllSelected: "All selected." });
-            window.testSelAll = $('.testSelAll').SumoSelect({okCancelInMulti:true, selectAll:true });
-            window.testSelAlld = $('.SlectBox-grp').SumoSelect({okCancelInMulti:true, selectAll:true });
-
-            window.testSelAll2 = $('.testSelAll2').SumoSelect({selectAll:true });
            
+            
 
-            window.Search = $('.search-box').SumoSelect({ csvDispCount: 3, search: true, searchText:'Enter here.' });
-            window.searchSelAll = $('.search-box-sel-all').SumoSelect({ csvDispCount: 3, selectAll:true, search: true, searchText:'Enter here.', okCancelInMulti:true });
-            window.searchSelAll = $('.search-box-open-up').SumoSelect({ csvDispCount: 3, selectAll:true, search: false, searchText:'Enter here.', up:true });
-
-            window.groups_eg_g = $('.groups_eg_g').SumoSelect({selectAll:true, search:true });
+            
         });
     </script>
 
@@ -59,7 +50,7 @@
               <div class="form-group">
               <label for="classes" class="col-md-4 col-xs-2" style="padding-left: 2em;">Class</label>
               <div class="col-md-3 col-xs-4">
-              <select class="SlectBox">
+              <select class="SlectBox" placeholder="Class" required="required">
                 <option value="12th">XII</option>
                 <option value="11th">XI</option>
                 <option value="10th">X</option>
