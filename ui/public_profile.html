@@ -5,12 +5,13 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Public Profile</title>
+
 <link rel="stylesheet" type="text/css" href="/mtutor/css/bootstrap.css">
 <link rel="stylesheet" type="text/css" href="/mtutor/css/mtutor.css">
-<link rel="stylesheet" href="/mtutor/css/font-awesome.min.css">
-<link rel="stylesheet" href="/mtutor/css/bootstrap.min.css">
-<link rel="stylesheet" href="/mtutor/css/bootstrap-editable.css" >
-
+<link rel="stylesheet" type="text/css" href="/mtutor/css/timeslot_css.css">
+<link rel="stylesheet" type="text/css" href="/mtutor/css/font-awesome.min.css">
+<link rel="stylesheet" type="text/css" href="/mtutor/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="/mtutor/css/bootstrap-editable.css" >
 <!--[if lt IE 9]>
 <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
 <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
@@ -19,15 +20,14 @@
 
 <body>
 	<div class="panel panel-info navbar-fixed-top">
-	 	<div class="panel-heading "><b>Profile</b><span style="float:right"> <a href="#"> Sign Out </a> </span> </div>
+	 	<div class="panel-heading "><b>Profile</b><span style="float:right"> <a href="#" style="margin-right:40px"> Sign Out </a> </span> </div>
 	</div>
 
-		  <div class="row">							
-			
+		<div class="row">							
 			<div class="col-md-3 col-md-offset-2" style="margin-top:80px">
 				
 				<div class="col-md-10">
-				<img src="pro_pic.jpeg" class= "col-md-offset-2 img-thumbnail img-responsive" alt="profile photo">
+				<img src="pro_pic.jpg" style="width:125px;" class= "col-md-offset-2 img-thumbnail img-responsive" alt="profile photo">
 				</div>
 				
 				<div class="col-md-8 col-md-offset-2" >Tutor's Rating:<br>
@@ -37,117 +37,202 @@
 					<span class="fa fa-star-half-empty"></span>
 					<span class="fa fa-star-o"></span><b><br><br>
 				</div>						
+	
+	  			
+	  				
+	  			
+
+	  				<div class="col-md-10 well well-sm" style="background-color:lightblue">
+							<label> Name: </label>
+						<textarea id="name" name="name" class="col-md-12" style="font-size:12px; background-color:lightblue; border-color:lightblue" disabled> Name of the Tutor </textarea>											
+					</div>
+
+					<div class="col-md-10 well well-sm" style="background-color:lightblue">
+							<label> Locations: </label>
+						<textarea id="name" name="name" class="col-md-12" style="font-size:12px; background-color:lightblue; border-color:lightblue" disabled> Locations he could teach(offline teaching) </textarea>											
+					</div>
+
+					<div class="col-md-10 well well-sm" style="background-color:lightblue">
+							<label> Tution Type: </label>
+						<textarea id="tuttype" name="tuttype" class="col-md-12" style="font-size:12px; background-color:lightblue; border-color:lightblue" disabled> institute, online, home-tution, tutor&apos;s place </textarea>											
+					</div>
+
+					<div class="col-md-10 well well-sm" style="background-color:lightblue">
+							<label> Reviews: </label>
+						<textarea id="name" name="name" class="col-md-12" style="height:160px; font-size:12px; background-color:lightblue; border-color:lightblue" disabled> Reviews about Tutor</textarea>											
+					</div>
+
+
+					<form class="form-search col-md-10 thumbnail">
+	  						<textarea rows="4" cols="50" class="form-group col-md-12" placeholder="Enter your query" style="resize:vertical; height:155px"></textarea><br><br>
+	  						<button type="button" class="btn btn-primary col-md-6 col-md-offset-3">Submit</button>
+	  				</form>
+
+	  			   				  										
+				</div>  <!--end of column 1-->
+
+				<div class="col-md-6">							
 					
-
-				<div class="col-md-10 thumbnail">
-                	<ul class="nav nav-pills nav-stacked">    												
-    					<li class="active" > <a data-toggle="pill" href="#subjects" style="height:30px"> 
-    					<span class="glyphicon glyphicon-book"></span> Subjects</a></li>
-
-    					<li ><a data-toggle="pill" href="#reviews" > 
-    					<span class="glyphicon glyphicon-user"></span> Reviews</a></li>
- 												    
- 				    	<li><a data-toggle="pill" href="#location">
- 						<span class="glyphicon glyphicon-map-marker"></span> Location</a></li>
-
-	    				<li><a data-toggle="pill" href="#time_slots" >	
-    					<span class="glyphicon glyphicon-time"> </span>  Time-Slots </a></li>
-
-    					<li><a data-toggle="pill" href="#find_students">
-    					<span class="glyphicon glyphicon-search"> </span> Find Queries  </a></li>
-    					
-    					<li><a data-toggle="pill" href="#payment_collection">
-    					<span class="glyphicon glyphicon-usd"> </span> Payment Collection </a></li>										
-  				    </ul>
-  				</div> 
-  			
-  				<form class="form-search col-md-10 thumbnail">
-  					<div class="input-append">
-  						<input type="text" class="search-query form-control col-md-10"/><br><br>
-  						<button type="button" class="btn btn-primary">Get Number</button>
-  					</div>
-  				</form>
-  			
-
-  				<div class="col-md-10 well well-lg" >
-						<label for="about" > Address: </label>
-					<p id="name" name="name" class="col-md-12"> abc </p>											
+				<div class="col-md-9 well well-sm" style="margin-top:80px; background-color:lightblue">
+					<div class="col-md-10">
+						<label> About:</label>
+				    </div>
+				    <textarea id="about" name="about" class="col-md-12" style="height:80px; background-color:lightblue; font-size:12px; border-color:lightblue" disabled>About the Tutor  </textarea>
+					
 				</div>
 
-  				<form class="form-search col-md-10 thumbnail">
-  					<div class="input-append">
-  						<input type="text" class="search-query form-control col-md-10"/><br><br>
-  						<button type="button" class="btn btn-warning">Write a Review</button>
-  					</div>
-  				</form>
-
-  				<form class="form-search col-md-10 thumbnail">
-  					<div class="input-append">
-  						<input type="text" class="search-query form-control col-md-10"/><br><br>
-  						<button type="button" class="btn btn-warning">Send Message</button>
-  					</div>
-  				</form>
-  			   				  										
-			</div>  <!--end of column 1-->
-
-			<div class="col-md-6">							
+									
+				<div class="col-md-9 well well-sm" style="background-color:lightblue">
+					<div class="col-md-10">
+						<label> Address: </label>
+				    </div>
+				    <textarea id="address" name="address" class="col-md-12" style="font-size:12px; border-color:lightblue; background-color:lightblue;" disabled> Adress of Tutor
+				    </textarea>	
+				</div>							
 				
-				<div class="col-md-9 well well-md" style="margin-top:80px">
+
+				<div class="col-md-9 well well-sm" style="background-color:lightblue">
 					<div class="col-md-10">
-						<label for="about"> Name: </label>
-					</div>
-					<p id="name" name="name" class="col-md-12"> abc </p>											
+						<label> Experience: </label>
+				    </div>
+				    <textarea id="experience" name="experience" class="col-md-12" style="font-size:12px; border-color:lightblue; background-color:lightblue" disabled> His/Her Experience </textarea>
+				</div>									
+													
+
+				<div class="col-md-9 well well-sm" style="background-color:lightblue">
+					<div class="col-md-10">
+						<label> Educational Qualification: </label>
+				    </div>
+				    <textarea id="edu_qual" name="edu_qual" class="col-md-12" style="font-size:12px; border-color:lightblue; background-color:lightblue" disabled> Educational Qualification Details</textarea>
+				</div>			
+	  			    
+
+
+				<div class="col-md-9 well well-sm" style="background-color:lightblue">
+					<div class="col-md-10">
+						<label> Subjects &amp; Classes: </label>
+				    </div>
+				    <textarea id="subjects" name="subjects" class="col-md-12" style="height:50px; font-size:12px; border-color:lightblue; background-color:lightblue" disabled>Subjects:                                                                                                                     Classes/Courses:                                                                                                Board: </textarea>
 				</div>
-								
-				<div class="col-md-9 well well-md">
-					<div class="col-md-10">
-						<label for="about"> About: </label>
-					</div>
-				<p id="about" name="about" class="col-md-12"> about the tutor </p>											
-			</div>							
+
+				
+				
+
+				<div class="col-md-9 panel panel-default" style="border:1px solid; padding:1px 1px 1px 1px"> 
+					
+				
+					<h5 style="text-align:center"><u>Time Slots Availability of Tutor </u></h5>
+				
+					<div class="panel-body col-md-10 col-md-offset-1">
+
+						<table class="tbl">    
+	    				
+		    				<div id="head_nav" class="t1" >
+		    					<tr>
+		   					        <th class="th1">Time</th>
+							        <th class="th1">Mon</th>
+							        <th class="th1">Tue</th>
+							        <th class="th1">Wed</th>
+							        <th class="th1">Thr</th>
+							        <th class="th1">Fri</th>
+							        <th class="th1">Sat</th>
+							        <th class="th1">Sun</th>
+							    </tr>
+							</div>  
+
+							<div>
+							    <tr>
+							        <th class="th1">Morning</th>
+							        <div class="td1">
+							            <td></td>
+							            <td></td>
+							            <td></td>
+							            <td></td>
+							            <td></td>
+							            <td></td>
+							            <td></td>
+							            </div>					        
+							    </tr>
+
+							    <tr>
+							        <th class="th1">Noon</th>
+							        <div class="td1">
+							            <td></td>
+							            <td></td>
+							            <td></td>
+							            <td></td>
+							            <td></td>
+							            <td></td>
+							            <td></td>
+							        </div>
+							    </tr>
+
+							    <tr>
+							        <th class="th1">Evening</th>
+							        <div class="td1">
+							             <td></td>
+							            <td></td>
+							            <td></td>
+							            <td></td>
+							            <td></td>
+							            <td></td>
+							            <td></td>
+							        </div>
+							    </tr>
+
+							    <tr>
+							        <th class="th1">Night</th>
+							        <div class="td1">
+							             <td></td>
+							            <td></td>
+							            <td></td>
+							            <td></td>
+							            <td></td>
+							            <td></td>
+							            <td></td>
+							        </div>
+							    </tr>
+							</div>
+
+						</table>
+					</div>	  		
+				</div>
+
+
+				<form class="form-search col-md-9 thumbnail">
+	  						<textarea class="form-group col-md-12" placeholder="Write Review" style="height:65px"></textarea><br><br>
+	  						<button type="button" class="btn btn-warning btn-md" style="float:right;">Enter</button>
+
+	  						<a href="#" style="font-size:12px"> Request Phone Number </a>
+	  			</form>
+
+
+
+  			</div>	
+  	  	</div>
+	
+
+
+<script src="/mtutor/js/jquery-1.12.4.js"></script>
+<script src="/mtutor/js/bootstrap.js"></script>
+<script src="/mtutor/js/bootstrap.min.js"></script>
+<script src="/mtutor/js/bootstrap-editable.js"></script>
+<script>
+		$(document).ready(function(){
+    		$(".nav-tabs a").click(function(){
+       			$(this).tab('show');
+       		});
 			
 
-			<div class="col-md-9 well well-md">
-				<div class="col-md-10">
-				<label for="experience"> Experience: </label>
-				</div>
-				<p id="experience" name="experience" class="col-md-12"> abc </p>
-			</div>									
-																																									
-			<div class="col-md-9  well well-md">
-				<div class="col-md-10">
-				<label for="edu_quali" style="margin-top:-25px" > Educational Qualification: </label>
-				</div>
-				<p id="edu_quali" name="edu_quali" class="col-md-12"> abc </p>
-			</div>			
-  			    
-			<section class="col-md-9" style="border:1px solid; height:400px"> <p> this is a section where subject, reviews, location, time-slot, payment and query info could be displayed. </p> </section>			<!-- section end-->
-
-
-
-  		</div>	
-  	  </div>
-	
-
-	
-	<script src="/mtutor/js/jquery-1.12.4.js"></script>
-	<script src="/mtutor/js/bootstrap.js"></script>
-	<script src="/mtutor/js/bootstrap.min.js"></script>
-	<script src="/mtutor/js/bootstrap-editable.js"></script>
-	<script>
-			$(document).ready(function() {
-    			$(".nav-pills a").click(function(){
-       				$(this).pill('show');
-           		});
-
-           		$('#name').editable({
+			$('#name').editable({
                            type:'text',
                            pk:1,
                            name:'name',
                            url:'post.php',  
                            title:'Enter Name'
                         });
-            });
+           });
+
 	</script>
 
 </body>
