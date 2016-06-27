@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Tuturs_Dashboard</title>
+<link rel="stylesheet" type="text/css" href="/mtutor/css/bootstrap.css">
+
+<!--script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script-->
+
+<!--[if lt IE 9]>
+<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+
+<style type="text/css">
+	.bordersec
+	{
+		border : 2px solid black;
+	}
+</style>
+
+</head>
+<body>
+	
+
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-md-2 col-md-offset-1" >
+				
+				<ul class="nav nav-pills nav-stacked thumbnail" style="margin-top:50px">
+					<li class="active"><a data-toggle="pill" href="#" >Messages</a></li>
+					<li><a data-toggle="pill" href="#" >Reviews</a></li>
+					<li><a data-toggle="pill" href="#" >My Students</a></li>
+					<li><a data-toggle="pill" href="#" >Notifications</a></li>
+				</ul>
+
+				
+				<div class="panel panel-default" style="margin-top:40px">
+					<div class="panel-heading">
+						<strong>Upcoming Sessions</strong>
+					</div>
+
+					<div class="panel-body">
+						
+						<div class="well well-sm">
+							3:30pm-4:30pm
+							Student: Jane
+						</div>
+						<button type="button" class="btn btn-warning col-md-offset-1" style="margin-top:-15px; margin-left:20px">View Details </button>
+						
+						<hr>
+
+						<div class="well well-sm">
+							6:30pm-7:30pm
+							Student: Jake
+						</div>
+						<button type="button" class="btn btn-warning col-md-offset-1" style="margin-top:-15px; margin-left:20px">View Details </button>
+
+					</div>
+				</div> 
+			</div>               <!--end of column:1 -->
+
+
+			<div class="col-md-7 col-md-offset-1" style="margin-top:50px">
+					
+					<div class="chart col-md-3" style="border: 2px solid gray; border-radius:100%; height: 150px;
+					  width: 180px">
+					   	<h1 style="text-align:center; margin-top:45px"> 3.5 </h1>
+						<h4 style="text-align: center; margin-top: 80px">Rating </h4>
+					</div>
+
+					<div class="chart col-md-3 col-md-offset-1" style="border:2px solid gray; border-radius:100%; height:150px; width:180px">
+						<h1 style="text-align:center; margin-top:45px"> Online </h1>		
+						<h4 style="text-align:center; margin-top:80px">Tuition Type</h4>				
+					</div>
+
+					<div class="chart col-md-3 col-md-offset-1" style="border: 2px solid gray; border-radius:100%; height: 150px; width: 180px">
+						<h1 style="text-align:center; margin-top:45px"> 6 </h1>
+						<h4 style="text-align:center; margin-top:80px">Occupied time slots</h4>
+					</div>
+					
+			</div>   
+
+			<div class="col-md-7 col-md-offset-1" style="margin-top: 100px">
+				<div class="panel panel-default">
+					
+					<div class="panel-heading">
+						<h4> Student Queries </h4>
+					</div>
+
+					<div class="panel-body">
+						<table class="table table-striped">
+							<tr>
+								<th>Name</th>
+								<th>Board</th>
+								<th>Class</th>
+								<th>Subject</th>
+								<th>Query</th> 
+							</tr>
+
+							<tr>
+								<td>Harry</td>
+								<td>CBSE</td>
+								<td>10 <sup>th</sup> </td>
+								<td>Physics</td>
+								<td>Thermodynamics</td>
+							</tr>
+
+							<tr>
+								<td>Barry</td>
+								<td>CBSE</td>
+								<td>11 <sup>th</sup> </td>
+								<td>Chemistry</td>
+								<td>Biomolecules</td>
+							</tr>
+
+							<tr>
+								<td>Robin</td>
+								<td>ICSE</td>
+								<td>12 <sup>th</sup> </td>
+								<td>Maths</td>
+								<td>Vectors</td>
+							</tr>
+						</table>
+					</div>
+					<div class="panel-footer" style="height: 50px">
+						<a href="#" class="btn btn-primary btn-sm" style="float: right;">Read More</a>
+					</div>
+				</div>
+
+			</div>
+	</div>
+	
+
+	<script src="/mtutor/js/jquery-1.12.4.js"></script>
+	<script src="/mtutor/js/bootstrap.js"></script>	
+</body>
+</html>
