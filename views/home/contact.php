@@ -5,7 +5,7 @@
 
 class ContactView {
     private $links;
-
+    private $title = "mTutor - Contact Us";
     public function __construct() {
         $this->links = ROOT_URL.'home/contact';
     }

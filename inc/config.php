@@ -16,7 +16,7 @@ class config {
 
 	static function setdebugflag(){
 		//ini_set("error_log", "/tmp/php-error.log");
-		if ($debug == TRUE) { 
+		if (self::$debug == TRUE) { 
 			ini_set('display_errors', '1');
 			error_reporting(E_ALL);
 			ini_set("log_errors", 1);
