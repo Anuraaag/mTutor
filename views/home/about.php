@@ -4,6 +4,7 @@
   include_once ('inc/bfooter.php');
 
 class AboutView {
+  private $title = "mTutor - About Us";
 	function display() {
     $headpage = new header();
     $headpage->setTitle($this->title);
