@@ -7,30 +7,38 @@
 <title> Profile_r3 </title>
 <link rel="stylesheet" type="text/css" href="/mtutor/css/bootstrap.css">
 <link rel="stylesheet" type="text/css" href="/mtutor/css/mtutor.css">
-<link href="/mtutor/css/sumoselect.css" rel="stylesheet" />
 <link rel="stylesheet" type="text/css" href="/mtutor/css/timeslot_css.css">
 
 <!--[if lt IE 9]>
 <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
 <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 <![endif]-->
+<link rel="stylesheet" type="text/css" href="/mtutor/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="/mtutor/css/bootstrap-select.css">
+
+<script type="text/javascript" src="/mtutor/js/jquery-1.12.4.min.js"></script>
+<script type="text/javascript" src="/mtutor/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="/mtutor/js/bootstrap-select.js"></script>
 
 
-		<script src="/mtutor/js/jquery.js"></script>
-  		<script src="/mtutor/js/bootstrap.js"></script> 
-  				<script src="/mtutor/js/jquery.sumoselect.js"></script> 
+<script src="/mtutor/js/jquery-1.12.4.js"></script>
+<!-- <script src="/mtutor/js/bootstrap.js"></script> -->
 
-		<script type="text/javascript">
-        $(document).ready(function () {
-            window.asd = $('.SlectBox').SumoSelect({ csvDispCount: 3, captionFormatAllSelected: "All selected." });
-           
-            
-        });
-    </script>
 
     <script type="text/javascript">
         $(document).ready(function() {
 
+		//TODO..
+		$('#id_areas').change(function () {
+			//var selected = $(this).find("option:selected").val();
+			
+			//sample to toggle next div
+			if ($(this).val() == "Rohini") {
+				$('#id_pincodes_div').addClass("in");
+			} else{
+				$('#id_pincodes_div').removeClass("in");
+			}
+		});
 
     $('td').click(function() {
         if ($(this).hasClass('HighLight'))
@@ -82,7 +90,7 @@
 	    				
 	    					
 	    					<span class="col-md-4">
-	    					<select multiple="multiple" placeholder="Areas Prefered" class="SlectBox" required>
+	    					<select id="id_areas" class="selectpicker" title="Areas Prefered" data-live-search="true" data-size="5" data-selected-text-format="count > 2" multiple="multiple" required>
        <option value="Shalimar">Shalimar Bagh</option>
        <option value="Pitam">Pitam Pura</option>
        <option value="Rohini">Rohini</option>
@@ -92,7 +100,7 @@
 
 	    					</span>
 	    					<span class="col-md-4">
-	    					<select multiple="multiple" placeholder="Pincodes" class="SlectBox" required>
+	    					<select id="id_pincodes" class="selectpicker" title="Pincodes" data-live-search="true" data-selected-text-format="count > 2" multiple="multiple" required>
        <option value="110088">110088</option>
        <option value="110052">110052</option>
        <option value="110085">110085</option>
@@ -111,7 +119,7 @@
 	    				<div class="form-group">
 	    				<label for="subject" class="col-md-4 col-xs-2 "style="padding-left: 2em;"> Subjects Preferred</label>
 	    				<div class="col-md-7 col-xs-4">
-	    					<select multiple="multiple" placeholder="Subjects Prefered" class="SlectBox" required>
+	    					<select id="id_subjects" class="selectpicker" title="Subjects Prefered" data-actions-box="true" data-live-search="true" data-selected-text-format="count > 2" multiple="multiple" required>
        <option value="Physics">Physics</option>
        <option value="History">History</option>
        <option value="English">English</option>
@@ -125,7 +133,7 @@
 	    				<div class="form-group">
 	    				<label for="class" class="col-md-4 col-xs-2" style="padding-left: 2em;"> Classes Preferred</label>
 	    				<div class="col-md-7 col-xs-4">
-	    					<select multiple="multiple" placeholder="Classes Prefered" class="SlectBox" required>
+	    					<select id="id_classes" class="selectpicker" title="Classes Prefered" data-live-search="true" data-selected-text-format="count > 2" multiple="multiple" required>
        <option value="12th">XII</option>
        <option value="11th">XI</option>
        <option value="10th">X</option>
