@@ -14,5 +14,25 @@
 			$viewModel = new HomeModel();
 			$this->returnView($viewModel->Contact(), true);
 		}
+
+		protected function Faq() {
+			$viewModel = new HomeModel();
+			$this->returnView($viewModel->Faq(), true);
+		}
+
+		protected function Terms() {
+			$viewModel = new HomeModel();
+			$this->returnView($viewModel->Terms(), true);			
+		}
+
+		protected function PrivPolicy() {
+			$viewModel = new HomeModel();
+			$this->returnView($viewModel->PrivPolicy(), true);						
+		}
+
+		protected function landing() {
+			$viewModel = new HomeModel();
+			$this->returnView($viewModel->landing(), true);						
+		}
 	}
 ?>

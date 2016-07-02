@@ -2,6 +2,20 @@
  // 	include_once ('./config.php'); 
 
 	class BFooter {
+    private $links = array();
+    private $jScripts = array();
+
+    public function __construct() {
+      $this->links[0] = ROOT_URL.'home/faq';
+      $this->links[1] = ROOT_URL.'home/contact';
+      $this->links[2] = ROOT_URL.'home/terms';
+      $this->links[3] = ROOT_URL.'home/privpolicy';
+    }
+
+    public function addScript($script) {
+      $this->jScripts[] = $script;
+    }
+
 		function display() {
 			$showPage = <<<PAGECONTENT
   <!-- START Footer -->
@@ -45,16 +59,16 @@
             <h4><span class="glyphicon glyphicon-star"></span> Support</h4>
             <nav>
               <ul class="quick-links">
-                <li><a href="faq.html">FAQ</a></li>
-                <li><a href="contact_us.html">Contact us</a></li>            
+                <li><a href="{$this->links[0]}">FAQ</a></li>
+                <li><a href="{$this->links[1]}">Contact us</a></li>            
               </ul>
             </nav>
             <h4><span class="glyphicon glyphicon-star"></span> Legal</h4>
             <nav>
               <ul class="quick-links">
                 <li><a href="#">License</a></li>
-                <li><a href="#">Terms of Use</a></li>
-                <li><a href="#">Privacy Policy</a></li>
+                <li><a href="{$this->links[2]}">Terms of Use</a></li>
+                <li><a href="{$this->links[3]}">Privacy Policy</a></li>
                 <li><a href="#">Security</a></li>      
               </ul>
             </nav>            
@@ -94,9 +108,12 @@
   <!-- End Footer -->
   <script src="/mtutor/js/jquery.js"></script>
   <script src="/mtutor/js/bootstrap.js"></script> 
-</body>
-</html> 
 PAGECONTENT;
+    echo $showPage;    
+    foreach ($this->jScripts as $val){
+      echo $val;
+    }
+    $showPage = "</body></html>"; 
 		echo $showPage;
 		}
 	}

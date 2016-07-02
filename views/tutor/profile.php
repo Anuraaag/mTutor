@@ -20,10 +20,9 @@
 
 		   $showpage = <<<PAGEDOC
 <body>
-	
+	<div class="container content">
 		<div class="row">							
 			<div class="col-md-3 col-md-offset-2" style="margin-top:80px">
-				
 				<div class="col-md-10">
 				<img src="pro_pic.jpg" style="width:125px;" class= "col-md-offset-2 img-thumbnail img-responsive" alt="profile photo">
 				<a href="#"><span class="col-md-1 col-md-offset-7 fa fa-pencil" style="margin-top:-120px"  data-toggle="popover" data-trigger="hover" data-content="Change" ></span></a>
@@ -141,25 +140,24 @@
 				
 				<div class="col-md-9" style="border:1px solid; padding:10px 10px 10px 10px">					
 					<h5 style="text-align:center">Time Slots Availability</h5>
-					<div class="col-md-10 col-md-offset-1">
-						<table class="tbl">  	    				
-		    				<div id="head_nav" class="t1" >
+					<div class="col-md-10 timeslot">
+						<table>  	    				
+		    				<div id="head_nav">
 		    					<tr>
-		   					        <th class="th1">Time</th>
-							        <th class="th1">Mon</th>
-							        <th class="th1">Tue</th>
-							        <th class="th1">Wed</th>
-							        <th class="th1">Thr</th>
-							        <th class="th1">Fri</th>
-							        <th class="th1">Sat</th>
-							        <th class="th1">Sun</th>
+		   					        <th>Time</th>
+							        <th>Mon</th>
+							        <th>Tue</th>
+							        <th>Wed</th>
+							        <th>Thr</th>
+							        <th>Fri</th>
+							        <th>Sat</th>
+							        <th>Sun</th>
 							    </tr>
 							</div>  
-
 							<div>
 							    <tr>
-							        <th class="th1">Morning</th>
-							        <div class="td1">
+							        <th>Morning</th>
+							        <div>
 							            <td></td>
 							            <td></td>
 							            <td></td>
@@ -169,10 +167,9 @@
 							            <td></td>
 							            </div>					        
 							    </tr>
-
 							    <tr>
-							        <th class="th1">Noon</th>
-							        <div class="td1">
+							        <th>Noon</th>
+							        <div>
 							            <td></td>
 							            <td></td>
 							            <td></td>
@@ -184,9 +181,9 @@
 							    </tr>
 
 							    <tr>
-							        <th class="th1">Evening</th>
-							        <div class="td1">
-							             <td></td>
+							        <th>Evening</th>
+							        <div>
+							            <td></td>
 							            <td></td>
 							            <td></td>
 							            <td></td>
@@ -197,9 +194,9 @@
 							    </tr>
 
 							    <tr>
-							        <th class="th1">Night</th>
-							        <div class="td1">
-							             <td></td>
+							        <th>Night</th>
+							        <div>
+							            <td></td>
 							            <td></td>
 							            <td></td>
 							            <td></td>
@@ -209,23 +206,22 @@
 							        </div>
 							    </tr>
 							</div>
-
 						</table>
 					</div>	  		
 				</div>			<!-- section end-->
 
   			</div>	
   	  	</div>	
-
+  </div>	  	
+PAGEDOC;
+		echo $showpage;
+  		$footer = new BFooter();
+$script = <<<SCRIPTDOC
 <script>
 		$(document).ready(function(){
-    		
     		$(".nav-tabs a").click(function(){
        			$(this).tab('show');
        		});
-
-
-
    			$('td').click(function() 
 				{
     			    if ($(this).hasClass('HighLight'))
@@ -240,13 +236,9 @@
 
 				$('[data-toggle="popover"]').popover();
            });
-
-	</script>
-</body>
-
-PAGEDOC;
-		echo $showpage;
-  		$footer = new BFooter();
+</script>
+SCRIPTDOC;
+  		$footer->addScript($script);
   		$footer->display();
 	}
 

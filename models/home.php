@@ -23,4 +23,20 @@ class HomeModel extends Model{
 		} 
 		return;
 	}
+
+	public function Faq() {
+		return;
+	}
+
+	public function Terms() {
+		return;
+	}
+
+	public function PrivPolicy() {
+		return;
+	}
+	
+	public function landing(){
+		return;
+	}
 }

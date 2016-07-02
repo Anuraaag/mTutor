@@ -1,7 +1,8 @@
 <?php
 	class User extends Controller {
 		protected function register() {
-			echo "<h1>Controller User->register() called";
+			$viewModel = new UserModel();
+			$this->returnView($viewModel->register(), true);
 			return;
 		}
 
@@ -18,9 +19,25 @@
 		}
 
 		protected function forget() {
-			echo "<h1>Controller User->forget() called";
+			$viewModel = new UserModel();
+			$this->returnView($viewModel->forget(), true);
+			return;
+			//echo "<h1>Controller User->forget() called";
 			return;
 		}
+
+		protected function changepwd() {			
+			$viewModel = new UserModel();
+			$this->returnView($viewModel->changepwd(), true);
+			return;
+		}
+
+		protected function activate() {			
+			$viewModel = new UserModel();
+			$this->returnView($viewModel->activate(), true);
+			return;
+		}
+		
 	}
 ?>
 
