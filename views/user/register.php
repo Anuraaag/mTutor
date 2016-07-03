@@ -10,6 +10,12 @@
 	class registerView
 	{
 		private $title = "mTutor - register new account";
+		private $links = array();
+
+		public function __construct() {
+		  $this->links[0] = ROOT_URL.'user/register';
+		}
+
 
 		public function display()
 		{
@@ -25,106 +31,64 @@
 			$bodyheader = new Bheader();
 			$bodyheader->display();
 			# code...
+			$showPage = '<div class="container content"><div class="row">';
+			echo $showPage;
+			Messages::display();
 			$showpage = <<< PAGEDOC
-				<!DOCTYPE html> 
-					<html lang="en">  
-					<head>    
-						<meta charset="utf-8">    
-						<meta http-equiv="X-UA-Compatible" content="IE=edge">    
-						<meta name="viewport" content="width=device-width, initial-scale=1">
-					    <title>Register New Account</title>    
-					    <link rel="stylesheet" type="text/css" href="/mtutor/css/bootstrap.css">
-					    <!--[if lt IE 9]>      
-					    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>      
-					    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>    
-					    <![endif]-->   
-					    
-					    <script type="text/javascript">
-					    	
-					    	function validateall()
-					    	{
-						    	var x = document.getElementById("confirmField").value;
-						    	var y = document.getElementById("passwordField").value;
-						    	if (!(x.match(y)))
-						    	{
-						    		window.alert("Password does not match.");
-						    		return false;
-						    	}
-						    	else
-						    	{
-						    		return true;
-						    	}
-						    	
-					    	}
-					    </script>   
-					</head>  
-					<body>        
-					    <h1 class = "text-center">Register Here For Free</h1>               
-					    <script src="/mtutor/js/jquery.js"></script>
-					    <script src="/mtutor/js/bootstrap.js"></script>  
-					    <div class="container">
-					    	<div class="row">
-					    		
 					    		<div class="col-md-5 col-xs-4 col-md-offset-7">
-							    	<form class="form-horizontal" action="doRegister.php" method="post">
-					    			<div class = "panel panel-default" style="float: right;">
+							    	<form class="form-horizontal" action="{$this->links[0]}" method="post">
+					    			<div class = "panel panel-default">
 					    				<div class = "panel-heading">
 					    					REGISTER
 					    				</div>
 					    				<div class="panel-body">
-							    				<div class="form-group">
+							    			<div class="form-group">
 							    				<label for="nameField" class="col-md-4 col-xs-2">Name</label>
 							    				<div class="col-md-7 col-xs-4">
 							    					<input type="text" class = "form-control" id = "nameField" placeholder="Your name" name="fieldName" required maxlength = "32" pattern = "[A-Z a-z]*"/>
 							    				</div>
-							    				</div>
+							    			</div>
 
-							    				<div class="form-group">
+							    			<div class="form-group">
 							    				<label for="emailField" class="col-md-4 col-xs-2">Email-id</label>
 							    				<div class="col-md-7 col-xs-4">
 							    					<input type="email" class = "form-control" id = "emailField" placeholder="Your email-id" name="fieldEmail" required pattern = "[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"/>
 							    				</div>
-							    				</div>
+							    			</div>
 
-							    				<div class="form-group">
+							    			<div class="form-group">
 							    				<label for="passwordField" class="col-md-4 col-xs-2">Password</label>
 							    				<div class="col-md-7 col-xs-4">
 							    					<input type="password" class = "form-control" id = "passwordField" placeholder="Your password" name="fieldPassword" required maxlength="20" minlength="8"/>
 							    				</div>
-							    				</div>
+							    			</div>
 
-							    				<div class="form-group">
+							    			<div class="form-group">
 							    				<label for="confirmField" class="col-md-4 col-xs-2">Confirm Password</label>
 							    				<div class="col-md-7 col-xs-4">
 							    					<input type="password" class = "form-control" id = "confirmField" placeholder="Confirm your password" name="fieldConfirm" required maxlength="20" minlength="8" />
 							    				</div>
-							    				</div>
+							    			</div>
 
-							    				<div class="form-group">
-							    				<span class="radio">
-							    				 	<label class= "col-md-4 col-xs-2" for="user">   
-							    				 		<input class="col-md-4 col-xs-4" type="radio" value="Tutor" name = "user" required/> Tutor 
-							    				 	</label>
+							    			<div class="form-group">
+							    				<label for="user" class="col-md-4 col-xs-2">Register As:</label>
+								    			<div class="col-xs-4 col-md-7">
+								    			 	<label for="user">   
+								    			 		<input type="radio" value="Tutor" name = "user"/> Tutor	</label>								    			 
+								    			 	<label for="user">   
+								    			 		<input type="radio" value="Student" name = "user">Student </label>
+								    			 </div>
+							    			</div>
 
-							    				 	<label class= "col-md-4 col-xs-2" for="user">   
-							    				 		<input class="col-md-4 col-xs-4" type="radio" value="Non-Academic Professionals" name = "user">Non- Academic Professionals 
-							    				 	</label>
-							    				 
-							    				 	<label class= "col-md-4 col-xs-2" for="user">   
-							    				 		<input class="col-md-4 col-xs-4" type="radio" value="Student" name = "user">Student 
-							    				 	</label>
-							    				 </span>
-							    				</div>
-
-							    				<div class="form-group">
+							    			<div class="form-group">
 							    				<label for="captchaField" class="col-md-4 col-xs-2">Captcha</label>
 							    				<div class="col-md-7 col-xs-4">
 							    					<input type="text" class = "form-control" id = "captchaField" placeholder="Captcha" name="fieldCaptcha" required />
 							    				</div>
-							    				</div>
+							    			</div>
 							    		</div>
 							    		<div class="panel-footer">
-							    			<button type = "submit" class="btn btn-primary btn-sm" onclick="validateall()">Register </button> 
+							    			<button type = "submit" name="submit" value="submit" class="btn btn-primary btn-sm" onclick="validateall()">Register </button> 
 							    			<a href = "#" class="pull-right">Login </a>
 							    		</div>
 					    			</div>
@@ -132,12 +96,28 @@
 					    		</div>
 					    	</div>
 					    </div>
-					</body> 
-					</html>
 PAGEDOC;
 			echo $showpage;
-			    $footer = new BFooter();
-    			$footer->display();
+			$footer = new BFooter();
+			$script = '<script type="text/javascript">
+					    	function validateall()
+					    	{
+						    	var x = document.getElementById("confirmField").value;
+						    	var y = document.getElementById("passwordField").value;
+						    	if (x != y)
+						    	{
+						    		document.getElementById("confirmField").setCustomValidity("Passwords Don\'t Match");
+						    		return false;
+						    	}
+						    	else
+						    	{
+						    		document.getElementById("confirmField").setCustomValidity("");
+						    		return true;
+						    	}						    	
+					    	}
+					    </script>';
+			$footer->addscript($script);		    			
+    		$footer->display();
 		}
 	}
 

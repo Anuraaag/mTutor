@@ -3,7 +3,7 @@
 define("DB_HOST", "localhost");
 define("DB_USER", "root");
 define("DB_PASS", "root123");
-define("DB_NAME", "mtutordb");
+define("DB_NAME", "mtutor");
 
 // Define URL
 define("ROOT_PATH", "/mtutor/");

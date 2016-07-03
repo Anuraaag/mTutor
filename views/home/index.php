@@ -26,9 +26,16 @@ class IndexView {
     $bodyheader->display();
 
     $showPage = <<<PAGECONTENT
-  <!-- start main content -->
+      <!-- ==== HEADERWRAP ==== -->
+        <div id="headerwrap" id="home" name="home">
+        <header class="clearfix">
+              <h1><span class="icon icon-shield"></span></h1>
+              <p>mTutor Welcomes</p>
+              <p>Helping you find the right tutor.</p>
+          </header>     
+        </div><!-- /headerwrap -->
+<!-- start main content -->
   <div class="container content"> 
-      <h2>Main Page Content comes here</h2><br><br><br><br><br><br><br><br><br><br>
       <div class="row">
         <div class="col-md-4">
           <figure class="figure">
@@ -61,9 +68,37 @@ class IndexView {
         <span style="font-size: 60px;" class="glyphicon glyphicon-thumbs-up"><p style="font-family: Berlin Sans FB; font-size: 43px; color: magenta;">5000 Subscribed Users </p></span>
       </div>
       <hr>
-    </div>     
+    </div>
+    <!- second row ends -->
   </div>
   <!-- end main content -->
+  <div class="section-colored">
+      <div class="container">
+          <div class="row">
+              <div class="col-lg-6 col-md-6 col-sm-6">
+                  <h2>Modern Business Features Include:</h2>
+                  <ul>
+                      <li>Bootstrap 3 Framework</li>
+                      <li>Mobile Responsive Design</li>
+                      <li>Predefined File Paths</li>
+                      <li>Working PHP Contact Page</li>
+                      <li>Minimal Custom CSS Styles</li>
+                      <li>Unstyled: Add Your Own Style and Content!</li>
+                      <li>Font-Awesome fonts come pre-installed!</li>
+                      <li>100% <strong>Free</strong> to Use</li>
+                      <li>Open Source: Use for any project, private or commercial!</li>
+                  </ul>
+              </div>
+              <div class="col-lg-6 col-md-6 col-sm-6">
+                  <img class="img-responsive" src="http://placehold.it/700x450/ffffff/cccccc">
+              </div>
+          </div>
+          <!-- /.row -->
+      </div>
+      <!-- /.container -->
+  </div>
+  <!-- /.section-colored -->
+
 PAGECONTENT;
 		echo $showPage;
     $footer = new BFooter();

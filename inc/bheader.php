@@ -97,21 +97,13 @@
 PAGECONTENT;
       echo $showPage;
       $this->displaymenu();
-      $showPage = <<<PAGECONTENT1
-                </ul>
-              </li>
-            </ul>
-            <ul class="nav navbar-nav navbar-right">
-              <li><a href="{$this->links[1]}">Login</a></li>
-              <li><a href="{$this->links[3]}">Register</a></li>
-              <li><a href="{$this->links[6]}">Log Out</a></li>
-            </ul>
-          </div><!--/.nav-collapse -->
-        </div>
-      </div>
-    </div>
-  </header>
-PAGECONTENT1;
+      $showPage = '</ul></li></ul><ul class="nav navbar-nav navbar-right">';
+      if(isset($_SESSION['is_logged_in'])) {
+        $showPage .= '<li><a href="'.$this->links[6].'">Log Out</a></li>';
+      } else {
+        $showPage .= '<li><a href="'.$this->links[1].'">Login</a></li>'.'<li><a href="'.$this->links[3].'">Register</a></li>'; 
+      }
+      $showPage .= '</ul></div><!--/.nav-collapse --></div></div></div></header>';
 		echo $showPage;
 		}
 	}
