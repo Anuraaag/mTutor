@@ -7,14 +7,21 @@
 		}
 
 		protected function login() {
-			//echo "<h1>Controller User->login() called";
-			$viewModel = new UserModel();
-			$this->returnView($viewModel->login(), true);
+			if(!isset($_SESSION['is_logged_in'])) {
+				$viewModel = new UserModel();
+				$this->returnView($viewModel->login(), true);
+			} else {
+				header('Location:'.ROOT_URL);
+			}
 			return;
 		}
 
 		protected function logout() {
 			echo "<h1>Controller User->logout() called";
+			unset($_SESSION['is_logged_in']);
+			session_destroy();
+			// Redirect
+			header('Location: '.ROOT_URL);
 			return;
 		}
 

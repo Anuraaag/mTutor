@@ -19,24 +19,7 @@
         		$bodyheader->display();
 
 		   $showpage = <<<PAGEDOC
-<script>
-function check()
-{
-	if(document.getElementById("password").value == document.getElementById("newpw").value)
-	{
-		document.forms.form1.submit();
-	}
-	else
-	{
-		alert("Passwords do not match");
-	}
-}
-
-</script>
-
-</head>
-<body>
-	<div class="container content" >
+<div class="container content" >
 	<br><h3 style="font-size: 30px" class="col-md-4 col-md-offset-1">Change Your Password</h3>
 	<div class=" col-md-6 col-md-offset-3 col-xs-12 col-sm-12">
 		<div style="padding: 10px 10px 10px 10px; border-color: red">
@@ -74,15 +57,23 @@ function check()
 		</div>		
 	</div>
  </div>
-
-	<script src="/mtutor/js/jquery.js"></script>
-	<script src="/mtutor/js/bootstrap.js"></script>	
-</body>
-</html>
-
 PAGEDOC;
 		echo $showpage;
   		$footer = new BFooter();
+$script = '<script>
+function check()
+{
+	if(document.getElementById("password").value == document.getElementById("newpw").value)
+	{
+		document.forms.form1.submit();
+	}
+	else
+	{
+		alert("Passwords do not match");
+	}
+}
+</script>';
+		$footer->addScript($script);
   		$footer->display();
 	}
 

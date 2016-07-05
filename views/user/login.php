@@ -10,12 +10,12 @@
       public function __construct() {
         $this->links[0] = ROOT_URL.'user/register';
         $this->links[1] = ROOT_URL.'user/forgot';
+        $this->links[2] = ROOT_URL.'user/login';        
       }
 
 
   		public function display()
   		{
-        echo "<p>loginview called</p>";
         $headpage = new header();
         $headpage->setTitle($this->title);
         if (config::$debug == TRUE)
@@ -27,12 +27,13 @@
         $bodyheader = new Bheader();
         $bodyheader->display();
 
-        $showPage = <<<PAGECONTENT
-<div class="container" style="padding-top:100px">
-  <div class=" col-md-4 col-md-offset-8 col-xs-12 col-sm-12">
+        $showPage = '<div class="container content">';
+        Messages::display();
 
+        $showPage .= <<<PAGECONTENT
+  <div class="col-md-4 col-md-offset-8 col-xs-12 col-sm-12">
     <div style="padding: 30px 30px 30px 30px">
-    <form class="form-horizontal" action="dologin.php" method="post">
+    <form class="form-horizontal" action="{$this->links[2]}" method="post">
       <div class="panel panel-default">
         <div class="panel-heading">
           LOGIN
@@ -52,7 +53,7 @@
             </div>          
         </div>
         <div class="panel-footer">
-          <span><button type="submit" class="btn btn-info btn-sm " style="float: left; padding-left: 5px; ">Login</button>
+          <span><button type="submit" name="submit" value="login" class="btn btn-info btn-sm " style="float: left; padding-left: 5px; ">Login</button>
           <a href="{$this->links[0]}" style="margin-right: 0px; float: right;">Register New User</a></span>
           <br><a href="{$this->links[1]}" style="float: right;">Forgot Password?</a><br>
         </div>

@@ -3,6 +3,10 @@
 		public function register(){
 			return;
 		}
+
+		public function dashboard(){
+			return;
+		}
 	}
 ?>
 

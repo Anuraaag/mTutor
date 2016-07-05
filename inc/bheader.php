@@ -99,7 +99,7 @@ PAGECONTENT;
       $this->displaymenu();
       $showPage = '</ul></li></ul><ul class="nav navbar-nav navbar-right">';
       if(isset($_SESSION['is_logged_in'])) {
-        $showPage .= '<li><a href="'.$this->links[6].'">Log Out</a></li>';
+        $showPage .= '<li><a href="'.$this->links[7].'">Log Out</a></li>';
       } else {
         $showPage .= '<li><a href="'.$this->links[1].'">Login</a></li>'.'<li><a href="'.$this->links[3].'">Register</a></li>'; 
       }

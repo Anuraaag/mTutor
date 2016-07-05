@@ -4,6 +4,7 @@
 
 	// includes
 	include ('inc/config.php');
+	include ('inc/utils.php');
 	include ('classes/messages.php');
 	include ('classes/main.php'); 
 	include ('classes/controller.php');

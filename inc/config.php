@@ -8,6 +8,8 @@ define("DB_NAME", "mtutor");
 // Define URL
 define("ROOT_PATH", "/mtutor/");
 define("ROOT_URL", "http://localhost/mtutor/");
+define("TUTOR", "T");
+define("STUDENT", "S");
 
 class config {
 	public static $debug = TRUE;

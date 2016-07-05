@@ -12,43 +12,72 @@
 <link rel="stylesheet" type="text/css" href="/mtutor/css/font-awesome.min.css">
 <link rel="stylesheet" type="text/css" href="/mtutor/css/bootstrap.min.css">
 <link rel="stylesheet" type="text/css" href="/mtutor/css/bootstrap-editable.css" >
+
 <!--[if lt IE 9]>
 <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
 <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 <![endif]-->
+<style type="text/css">
+	.well
+	{
+		background-color: lightblue;
+	}
+</style>
 </head>
 
 <body>
-	<div class="panel panel-info navbar-fixed-top">
-	 	<div class="panel-heading "><b>Profile</b><span style="float:right"> <a href="#" style="margin-right:40px"> Sign Out </a> <a href="#"> See Public Profile </a> </span> </div>
-	</div>
+	
 
 		<div class="row">							
-			<div class="col-md-3 col-md-offset-2" style="margin-top:80px">
-				
-				<div class="col-md-10">
-				<img src="pro_pic.jpg" style="width:125px;" class= "col-md-offset-2 img-thumbnail img-responsive" alt="profile photo">
-				<a href="#"><span class="col-md-1 col-md-offset-7 fa fa-pencil" style="margin-top:-120px"  data-toggle="popover" data-trigger="hover" data-content="Change" ></span></a>
-				</div>
-				
-				<div class="col-md-8 col-md-offset-2" >Tutor's Rating:<br>
-					<span class="fa fa-star"> </span>
-					<span class="fa fa-star"></span>
-					<span class="fa fa-star"></span>
-					<span class="fa fa-star-half-empty"></span>
-					<span class="fa fa-star-o"></span><b><br><br>
-				</div>						
 			
-
-				<div class="col-md-10 thumbnail">
-					  	<p style="text-align:center">Profile Completed </p>
-	   	 				<div class="progress" >
-	  						<div class="progress-bar  progress-bar-success progress-bar-striped active"
-	  					 	role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width:80%">80%</div>
-						</div>
+			<div class="col-md-3 col-md-offset-1">				
+				
+					<div class="col-md-10">
+						<img src="\mtutor\ui\pro_pic.jpg" class="col-md-offset-2 img-thumbnail img-responsive" alt="profile photo">
+						<a href="#"> </a>
+					</div>
+					
+					<div class="col-md-8 col-md-offset-2" >Your Rating:<br>
+						<span class="fa fa-star"> </span>
+						<span class="fa fa-star"></span>
+						<span class="fa fa-star"></span>
+						<span class="fa fa-star-half-empty"></span>
+						<span class="fa fa-star-o"></span><b><br><br>
+					</div>						
+				
+					<div class="col-md-10">
+						  	<p style="text-align:center">Profile Completed </p>
+		   	 				<div class="progress" >
+		  						<div class="progress-bar  progress-bar-success progress-bar-striped active"
+		  					 	role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width:80%">80%</div>
+							</div>
 					</div>
 
 					<!-- progress-->
+
+
+					<div class="col-md-10 well well-sm">
+						
+						<p><label for="address"> Email: </label>
+						<a href="#" id="email" data-type="text" data-url="dologin.php" data-rows="2" data-title="Enter email" data-pk="1">abc@smthing.com</a></p> 
+
+						<p><label for="address"> Address: </label>
+						<a href="#" id="address" data-type="textarea" data-url="dologin.php" data-rows="2" data-title="Enter address" data-pk="2">D Block Janakpuri</a></p> 
+						
+						<p><label for="gender">Pincode:</label>
+						<a href="#"  id="pincode" data-type="text" data-url="dologin.php" data-rows="2" data-title="Enter pincode" data-pk="3">Pincode</a> </p>
+
+						<p><label for="city"> City: </label>
+						<a href="#" id="city" data-type="textarea" data-url="dologin.php" data-rows="2" data-title="Enter city" data-pk="4">New Delhi</a> </p>
+						
+						<p><label for="state">State:</label>
+						<a href="#"  id="state" data-type="text" data-url="dologin.php" data-rows="2" data-title="Enter state" data-pk="5">Delhi</a> </p>
+
+						<p><label for="gender">Country:</label>
+						<a href="#"  id="country" data-type="text" data-url="dologin.php" data-rows="2" data-title="Enter country" data-pk="6">India</a>
+						</p>
+
+					</div>
 
 					<div class="col-md-10 thumbnail">
 	                	<ul class="nav nav-pills nav-stacked">    												
@@ -56,10 +85,7 @@
 	    					<li ><a data-toggle="pill" href="#reviews" > 
 	    					<span class="glyphicon glyphicon-user"></span> Reviews</a></li>
 	 												    
-	 				    	<li><a data-toggle="pill" href="#location">
-	 						<span class="glyphicon glyphicon-map-marker"></span> Location</a></li>
-
-	    					<li><a data-toggle="pill" href="#find_students">
+	 				    	<li><a data-toggle="pill" href="#find_students">
 	    					<span class="glyphicon glyphicon-search"> </span> Find Queries  </a></li>
 	    					
 	    					<li><a data-toggle="pill" href="#payment_collection">
@@ -67,90 +93,90 @@
 	  				    </ul>
 	  				</div> 
 	  			
-	  				<form class="form-search col-md-10 thumbnail">
-	  					<div class="input-append">
-	  						<input type="text" class="search-query form-control col-md-10"/><br><br>
-	  						<button type="button" class="btn btn-primary">Change Number</button>
-	  					</div>
-	  				</form>
+	  			 	<div class="col-md-10 thumbnail" >
+	  			 	Mobile Number : <a href="#" id="m_no" data-type="text" data-url="dologin.php" data-rows="2" data-title="Change Number" data-pk="1"> +91 2937465839 </a> <br><br>
+
+					Landline Number : <a href="#" id="l_no" data-type="text" data-url="dologin.php" data-rows="2" data-title="Change Number" data-pk="1"> +011 25500000 </a> 
+					</div>		
+	  				
 	  			
+					<div class="col-md-10 well well-sm">
 
-	  				<div class="col-md-10 well well-sm" style="background-color:lightblue">
-							<label> Address: </label>
-						<a href="#"><span class="fa fa-pencil pull-right" data-toggle="popover" data-trigger="hover" data-content="Edit" ></span></a>
-						<textarea class="col-md-12" style="font-size:12px; background-color:lightblue; border-color:lightblue" disabled> State, District, Pincode, City, Area </textarea>											
-					</div>
+						<p><label for="job_det"> Job Details: </label>
+						<a href="#" id="job_det" data-type="text" data-url="dologin.php" data-rows="2" data-title="Enter Job Details" data-pk="1">your job details<br><br></a></p>
 
-
-	  				<form class="form-search col-md-10 thumbnail">
-	  					<div class="input-append">
-	  						<input type="text" class="search-query form-control col-md-10"/><br><br>
-	  						<button type="button" class="btn btn-warning">Send Message</button>
-	  					</div>
-	  				</form>
+						<p><label for="lang"> Languages Known: </label>
+						<a href="#" id="lang" data-type="textarea" data-url="dologin.php" data-rows="2" data-title="Languages you know" data-pk="2"> English German Hindi <br><br></a></p> 
+						
+						<p><label for="prof_quali">Professional Qualification:</label>
+						<a href="#"  id="prof_quali" data-type="text" data-url="dologin.php" data-rows="2" data-title="Enter pincode" data-pk="3">your professional qualification<br><br></a></p>
+	  				</div>
 	  			   				  										
 				</div>  <!--end of column 1-->
 
-				<div class="col-md-6">							
+			
+
+				<div class="col-md-6">												
 					
-				<div class="col-md-9 well well-sm" style="margin-top:80px; background-color:lightblue">
-					<div class="col-md-10">
-						<label> Name:</label>
-				    </div>
-				    <a href="#"><span class="fa fa-pencil pull-right" data-toggle="popover" data-trigger="hover" data-content="Edit" ></span></a>
-				    <textarea id="name" name="name" class="col-md-12" style="background-color:lightblue; font-size:12px; border-color:lightblue" disabled> Your Name </textarea>
+					<div class="col-md-9 well well-sm">
+						<p><label for="name">Name:</label>
+						<a href="#" id="tname" data-type="text" data-url="dologin.php" data-title="Enter username" data-pk="1"> Your Name</a></p>
+						
+						<p><label for="gender">Gender:</label>
+						<a href="#"  id="gender" data-type="select" data-url="dologin.php" data-title="Enter gender" data-pk="2">Male</a></p>
+						
+						<p><label for="dob">D.O.B.:</label>
+						<a href="#"  id="dob" data-type="text" data-url="dologin.php" data-title="Enter date of birth" data-pk="3">october 21</a></p>
 
-				   <div class="col-md-10">
-						<p> Gender: <a href="#"> <span class="fa fa-pencil pull-right" style="margin-right:-90px;" data-toggle="popover" data-trigger="hover" data-content="Edit" ></span></a> </p>
-				    </div>
-				       
-		
-				</div>
-
+					</div>
 									
-				<div class="col-md-9 well well-sm" style="background-color:lightblue">
-					<div class="col-md-10">
-						<label> About: </label>
-				    </div>
-				    <a href="#"><span class="fa fa-pencil pull-right" data-toggle="popover" data-trigger="hover" data-content="Edit" ></span></a>
-				    <textarea id="about" name="about" class="col-md-12" style="height:80px; font-size:12px; border-color:lightblue; background-color:lightblue;" disabled> About Yourself
-				    </textarea>	
-				</div>							
-				
+					<div class="col-md-9 well well-sm">
+						<label for="about"> About: </label>
+					    <a href="#" id="about" data-inputclass="maxlength:160;" data-type="textarea" data-rows="3" data-pk="1" data-url="dologin.php">Write About Yourself<br><br><br></a>
+					</div>											
 
-				<div class="col-md-9 well well-sm" style="background-color:lightblue">
-					<div class="col-md-10">
-						<label> Experience: </label>
-				    </div>
-				    <a href="#"><span class="fa fa-pencil pull-right" data-toggle="popover" data-trigger="hover" data-content="Edit" ></span></a>
-				    <textarea id="experience" name="experience" class="col-md-12" style="font-size:12px; border-color:lightblue; background-color:lightblue" disabled> About Your Experience </textarea>
-				</div>									
-													
-
-				<div class="col-md-9 well well-sm" style="background-color:lightblue">
-					<div class="col-md-10">
-						<label> Educational Qualification: </label>
-				    </div>
-				    <a href="#"><span class="fa fa-pencil pull-right" data-toggle="popover" data-trigger="hover" data-content="Edit" ></span></a>
-				    <textarea id="edu_qual" name="edu_qual" class="col-md-12" style="font-size:12px; border-color:lightblue; background-color:lightblue" disabled> Your Educational Qualification </textarea>
-				</div>			
-	  			    
+					<div class="col-md-9 well well-sm">
+						<label for="experience"> Experience: </label>
+					    <a href="#" id="experience" data-inputclass="maxlength:80;" data-type="textarea" data-rows="6" data-pk="1" data-url="dologin.php">About Your Experience <br><br></a>		
+					</div>									
 
 
-				<div class="col-md-9 well well-sm" style="background-color:lightblue">
-					<div class="col-md-10">
-						<label> Subjects &amp; Classes: </label>
-				    </div>
-				    <a href="#"><span class="fa fa-pencil pull-right" data-toggle="popover" data-trigger="hover" data-content="Edit" ></span></a>
-				    <textarea id="subjects" name="subjects" class="col-md-12" style="height:50px; font-size:12px; border-color:lightblue; background-color:lightblue" disabled>Subjects:                                                                                                                     Classes/Courses:                                                                                                Board: </textarea>
-				</div>
 
 				
-				<div class="col-md-9" style="border:1px solid; padding:10px 10px 10px 10px"> 
-					
-					<h5 style="text-align:center">Time Slots Availability</h5>
-					<div class="col-md-10 col-md-offset-1">
+				<div class="panel panel-default col-md-9">
+				    
+				   
+				    <div class="panel-heading"> 
+						<h4 style="text-align:center; font-weight:bold" >Professional Preference</h4>
+					</div>
 
+					<div class=" panel-body">
+												
+						<div class="thumbnail">
+							<label for="subjects"> Subjects:</label>					   
+						    <a href="#" id="subject" data-inputclass="maxlength:100;" data-type="textarea" data-rows="3" data-pk="1" data-url="dologin.php"> Mathematics Accounts<br></a> 
+
+
+						    <label for="board"> Board: </label>					   
+						    <a href="#" id="board" data-inputclass="maxlength:20;" data-type="text" data-rows="1" data-pk="1" data-url="dologin.php">
+						    CBSE ICSE<br></a> 
+
+
+						    <label for="class"> Class:</label>					   
+						    <a href="#" id="class" data-inputclass="maxlength:20;" data-type="text" data-rows="2" data-pk="1" data-url="dologin.php">IX XI<br></a> 
+
+
+						    <label for="tuition"> Tuition Option:</label>					   
+						    <a href="#" id="tuition" data-inputclass="maxlength:25;" data-type="text" data-rows="2" data-pk="1" data-url="dologin.php">Tutor's Home<br></a> 
+
+						    <label for="p_area"> Preferred Areas:</label>					   
+						    <a href="#" id="p_area" data-inputclass="maxlength:25;" data-type="textarea" data-rows="2" data-pk="1" data-url="dologin.php">Janakpuri Vikaspuri<br></a> 
+
+						    <label for="a_pin"> Area Pincode:</label>					   
+						    <a href="#" id="a_pin" data-inputclass="maxlength:25;" data-type="text" data-rows="2" data-pk="1" data-url="dologin.php">110058</a> 
+						</div>
+
+						Your Time Slots:
 						<table class="tbl">    
 	    				
 		    				<div id="head_nav" class="t1" >
@@ -221,20 +247,136 @@
 							</div>
 
 						</table>
-					</div>	  		
+				  	</div>	
 				</div>			<!-- section end-->
 
-  			</div>	
-  	  	</div>
+  	  	
+  
+	  	  		<div class="col-md-9">
+	  	  		
+	  	  			<!-- Nav tabs -->
+					<ul class="nav nav-tabs">
+					<h3>Qualification</h3>
+					<li class="active"><a href="#postgrad" data-toggle="tab">Post Graduate</a></li>
+					<li><a href="#graduation" data-toggle="tab">Graduate</a></li>
+					<li><a href="#school" data-toggle="tab">Schooling</a></li>
+					</ul>
+
+					<!-- Tab panes -->
+					<div class="tab-content col-md-offset-1" >
+						<div class="tab-pane active" id="postgrad">
+
+						<br>
+							<p><label for="post_grad">Post Graduate:</label>					   
+						    <a href="#" id="post_grad" data-inputclass="maxlength:100;" data-type="text" data-rows="1" data-pk="1" data-url="dologin.php"> MSc MBA</a></p>
+
+						    <p><label for="post_specialist">Specialist:</label>					   
+						    <a href="#" id="post_specialist" data-inputclass="maxlength:100;" data-type="text" data-rows="2" data-pk="1" data-url="dologin.php"> Computer Applications</a></p>
+
+						    <p><label for="post_univ">University:</label>					   
+						    <a href="#" id="post_univ" data-inputclass="maxlength:100;" data-type="text" data-rows="2" data-pk="1" data-url="dologin.php"> Delhi University</a></p>
+
+						    <p><label for="post_year_pass">Year of Passing:</label>					   
+						    <a href="#" id="post_year_pass" data-inputclass="maxlength:100;" data-type="text" data-rows="1" data-pk="1" data-url="dologin.php"> 2015</a></p>
+
+						    <p><label for="post_sub_studied">Subjects:</label>					   
+						    <a href="#" id="post_sub_studied" data-inputclass="maxlength:100;" data-type="text" data-rows="3" data-pk="1" data-url="dologin.php"> subjects</a> </p>
+						</div>
+					
+						
+						<div class="tab-pane" id="graduation">
+							<br>
+							<p><label for="grad">Graduate:</label>					   
+						    <a href="#" id="grad" data-inputclass="maxlength:100;" data-type="text" data-rows="1" data-pk="1" data-url="dologin.php"> BBA</a></p>
+
+						    <p><label for="g_specialist">Specialist:</label>					   
+						    <a href="#" id="g_specialist" data-inputclass="maxlength:100;" data-type="text" data-rows="2" data-pk="1" data-url="dologin.php"> Computer Applications</a></p>
+
+						    <p><label for="g_univ">University:</label>					   
+						    <a href="#" id="g_univ" data-inputclass="maxlength:100;" data-type="text" data-rows="2" data-pk="1" data-url="dologin.php"> Delhi University</a></p>
+
+						    <p><label for="g_year_pass">Year of Passing:</label>					   
+						    <a href="#" id="g_year_pass" data-inputclass="maxlength:100;" data-type="text" data-rows="1" data-pk="1" data-url="dologin.php"> 2012</a></p>
+
+						    <p><label for="g_sub_studied">Subjects:</label>					   
+						    <a href="#" id="g_sub_studied" data-inputclass="maxlength:100;" data-type="text" data-rows="3" data-pk="1" data-url="dologin.php"> subjects</a> </p>
+						</div>
+					
+						<div class="tab-pane" id="school">
+							<br>
+							<p><label for="school">School Name:</label>					   
+						    <a href="#" id="school" data-inputclass="maxlength:100;" data-type="text" data-rows="1" data-pk="1" data-url="dologin.php">Sumermal Jain School</a></p>
+
+						    <p><label for="bname">Board Name:</label>					   
+						    <a href="#" id="bname" data-inputclass="maxlength:100;" data-type="text" data-rows="2" data-pk="1" data-url="dologin.php"> CBSE</a></p>
+	
+							<p><label for="s_year_pass">Year of Passing:</label>					   
+						    <a href="#" id="s_year_pass" data-inputclass="maxlength:100;" data-type="text" data-rows="1" data-pk="1" data-url="dologin.php">2009 </a></p>
+
+						    <p><label for="s_sub_studied">Subjects:</label>					   
+						    <a href="#" id="s_sub_studied" data-inputclass="maxlength:100;" data-type="text" data-rows="3" data-pk="1" data-url="dologin.php"> subjects</a> </p>
+						</div>
+					</div>	
+				</div>
+				
+		</div>
+  	  	
 	
 
-<script src="/mtutor/js/jquery-1.12.4.js"></script>
+<script src="/mtutor/js/jquery.js"></script>
 <script src="/mtutor/js/bootstrap.js"></script>
 <script src="/mtutor/js/bootstrap.min.js"></script>
 <script src="/mtutor/js/bootstrap-editable.js"></script>
 <script>
 		$(document).ready(function(){
-    		
+			$.fn.editable.defaults.mode = 'inline';
+			$('#tname').editable();
+			$('#gender').editable({
+				value: 1,    
+				source: [
+				    {value: 1, text: 'Male'},
+				    {value: 2, text: 'Female'},
+				]				
+			});
+			$('#dob').editable();
+			$('#about').editable();
+			$('#experience').editable();
+			$('#edu_qual').editable();
+			$('#subject').editable();
+			$('#board').editable();
+			$('#class').editable();
+			$('#tuition').editable();
+			$('#p_area').editable();
+			$('#a_pin').editable();
+			$('#email').editable();
+			$('#address').editable();
+			$('#pincode').editable();
+			$('#city').editable();
+			$('#state').editable();
+			$('#country').editable();
+			$('#m_no').editable();
+			$('#l_no').editable();
+			$('#post_grad').editable();
+			$('#post_specialist').editable();
+			$('#post_univ').editable();
+			$('#post_year_pass').editable();
+			$('#post_sub_studied').editable();
+			$('#grad').editable();
+			$('#g_specialist').editable();
+			$('#g_univ').editable();
+			$('#g_year_pass').editable();
+			$('#g_sub_studied').editable();
+			$('#school').editable();
+			$('#bname').editable();
+			$('#s_year_pass').editable();
+			$('#s_sub_studied').editable();
+			$('#job_det').editable();
+			$('#lang').editable();
+			$('#prof_quali').editable();
+			//$('#about').editable({
+			//	tpl: '<textarea maxlength="150"></textarea>'
+			//});
+
     		$(".nav-tabs a").click(function(){
        			$(this).tab('show');
        		});
@@ -254,17 +396,6 @@
     			});
 
 				$('[data-toggle="popover"]').popover();
-
-
-           		$.function().editable.defaults.mode = 'inline';
-
-           		$('#name').editable({
-                           type:'text',
-                           pk:1,
-                           name:'name',
-                           url:'post.php',  
-                           title:'Enter Name'
-                        });
            });
 
 	</script>
