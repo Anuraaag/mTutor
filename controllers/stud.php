@@ -11,6 +11,12 @@
 			$this->returnView($viewModel->dashboard(), true);
 			return;
 		}
+
+		protected function search() {
+			$viewModel = new StudModel();
+			$this->returnView($viewModel->search(), true);
+			return;			
+		}
 	}
 ?>
 

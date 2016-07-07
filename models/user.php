@@ -57,8 +57,57 @@
 			return;
 		}		
 
-		public function activate() {
-			return;
+		public function activate($id) {
+			// check if activation id exists in table if yes, 
+			// check if id has not expired, if yes
+			// set data as activated, move details to user table
+			$message = 'Your account is successfully activated. Click continute button to login.';
+
+			if ($id == '') {
+				$message = "Invalid Activation Code or Expired.";
+			} else {
+				$this->query('Select * from registration WHERE activation_url = :actv_url');
+				$this->bind(':actv_url', trim($id));
+				$row = $this->single();
+				if ($row){
+					$email = $row['email'];
+					$password = $row['password'];
+					$userType = $row['user_type'];
+					$mobile = $row['mob_number'];
+					$uid = $userType. sprintf('%06d',$row['id']);
+					//check time stamp;
+					//$message .= "email=".$email."password=".$password."userType=".$userType."mobile=".$mobile;
+					//$message .=implode(" ",$row);
+					$activation_time = strtotime($row['ac_creation_date']);
+					$curtime = time();
+					$interval =   $curtime - $activation_time;   
+					if ($interval < 172800) {
+						// success full activation.
+						$this->query('Update registration SET active_status = 1 WHERE activation_url = :actv_url');
+						$this->bind(':actv_url', trim($id));
+						$this->single();
+						// insert user table
+						//$this->query("INSERT INTO users (email, password, user_type, mob_number, status, ac_creation_date, u_id) VALUES('sandeep', 'password', 'T', 'mobno', 1, '2016-07-06 21:43:52', 'T0000004')");
+						$this->query("INSERT INTO users (email, password, user_type, mob_number, status, ac_creation_date, u_id) VALUES(:email, :password, :usertype, :mobno, 1, :createdate, :uid)");
+						$this->bind(':email', $email);
+						$this->bind(':password', $password);
+						$this->bind(':usertype', $userType);
+						$this->bind(':mobno', $mobile);
+						$this->bind(':createdate', date("Y-m-d H:i:s"));
+						$this->bind(':uid', $uid);
+						$this->execute();
+						// Verify
+						if($this->lastInsertId()){
+							$message = "Account has been successfully activated";
+						}
+					} else {
+						$message = "Activation has expired";
+					}
+				} else {
+					$message = "Invalid Activation Code or Expired.";
+				}
+			}
+			return $message;
 		}		
 
 		public function register() {
@@ -80,7 +129,7 @@
 				} else {
 					// check name, user and other fields have lengths within limits
 					$passwd = MD5($post['fieldPassword']);
-					$activeurl = struuid(true);;
+					$activeurl = struuid(true);
 					$userType = Utils::getUserType($post['user']);
 					$this->query('INSERT INTO registration (name, email, password, user_type, activation_url, active_status) VALUES(:name, :email, :password, :usertype, :actv_url, :active_status)');
 					$this->bind(':name', trim($post['fieldName']));

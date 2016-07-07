@@ -8,12 +8,17 @@
 	*/
 	class register_ack_view
 	{
-		private $title = "mTutor - Contact Us";
+		private $title = "mTutor - Account Activation";
 		private $links = array();
+		private $message;
 
 		public function __construct() {
 			$this->links[0] = ROOT_URL.'/img/tick.png';
 		}
+
+		public function setMessage($msg) {
+			$this->message = $msg;
+		} 
 
 		public function display()
 		{
@@ -39,7 +44,7 @@
     </div>
     
     <div class="col-md-12">     
-  		<h2>You have been successfully registered.<br>We have sent you an activation link to your email id </h2>
+  		<h2>{$this->message}</h2>
     </div>
 		
 		<a href="#" class="btn btn-info btn-lg col-md-4 col-md-offset-4">
@@ -57,5 +62,6 @@ PAGEDOC;
 		}
 	}
 	$obj= new register_ack_view();
+	$obj->setMessage($viewmodel);
 	$obj->display();
 ?>	

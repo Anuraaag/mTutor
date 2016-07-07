@@ -35,6 +35,7 @@
 
 		public function execute() {
 			$this->stmt->execute();
+			//return $this->stmt->debugDumpParams();
 			return;
 		}
 

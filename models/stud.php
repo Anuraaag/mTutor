@@ -7,6 +7,10 @@
 		public function dashboard(){
 			return;
 		}
+
+		public function search(){
+			return;
+		}
 	}
 ?>
 

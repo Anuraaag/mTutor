@@ -8,6 +8,11 @@
 	class publicpro
 	{
 		private $title = "mtutor - Profile";       	 
+		private $links = array();
+
+		public function __construct() {
+		   $this->links[0] = ROOT_URL.'img/pro_pic.png';
+		}
 
 		public function display()
 		{		   
@@ -25,7 +30,7 @@
 			<div class="col-md-3 col-md-offset-2" style="margin-top:80px">
 				
 				<div class="col-md-10">
-				<img src="pro_pic.jpg" style="width:125px;" class= "col-md-offset-2 img-thumbnail img-responsive" alt="profile photo">
+				<img src="{$this->links[0]}" style="width:125px;" class= "col-md-offset-2 img-thumbnail img-responsive" alt="profile photo">
 				</div>
 				
 				<div class="col-md-8 col-md-offset-2" >Tutor's Rating:<br>

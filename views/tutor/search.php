@@ -19,29 +19,11 @@
         		$bodyheader->display();
 		   
 		   $showpage = <<< PAGEDOC
-		   <!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Search mTutor</title>
-<link rel="stylesheet" type="text/css" href="/mtutor/css/bootstrap.css">
-<!--script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script-->
-
-<!--[if lt IE 9]>
-<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-<![endif]-->
-
-</head>
-<body>
-
-	<div class="container" style="padding-top: 150px">
+	<div class="container content">
 		<div class="col-md-8 col-md-offset-2" >
 			<div class="panel panel-danger">
 			  <div class="panel-heading">
-			  	Search for Tutors/Students
+			  	Search for Students
 			  </div>
 				<div class="panel-body">
 					<form class="form-horizontal">
@@ -80,8 +62,6 @@
 			</div>
 		</div>
 	</div>
-	<script src="/mtutor/js/jquery-1.12.4.js"></script>
-	<script src="/mtutor/js/bootstrap.js"></script>	
 </body>
 </html>
 

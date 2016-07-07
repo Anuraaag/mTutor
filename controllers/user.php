@@ -41,7 +41,9 @@
 
 		protected function activate() {			
 			$viewModel = new UserModel();
-			$this->returnView($viewModel->activate(), true);
+			// read activation string passed
+			$actnStr = $_GET['id'];
+			$this->returnView($viewModel->activate($actnStr), true);
 			return;
 		}
 		

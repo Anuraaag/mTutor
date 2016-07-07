@@ -25,7 +25,7 @@
       $this->dropdownlinks[7] = ROOT_URL.'tutor/dashboard';
       $this->dropdownlinks[8] = ROOT_URL.'tutor/sendmessage';
       $this->dropdownlinks[9] = ROOT_URL.'tutor/showmessages';
-      $this->dropdownlinks[10] = ROOT_URL.'tutor/pubprofile';
+      $this->dropdownlinks[10] = ROOT_URL.'tutor/publicpro';
       $this->dropdownlinks[11] = ROOT_URL.'stud/register';
       $this->dropdownlinks[12] = ROOT_URL.'stud/profile';
       $this->dropdownlinks[13] = ROOT_URL.'stud/search';
