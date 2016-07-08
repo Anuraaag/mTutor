@@ -218,3 +218,12 @@ div.timeslot td {
     top:5px;
     left: 10px;
     }
+
+
+/* ==========================================================================
+   bootstrap editable (for backgound color of editable items)
+   ========================================================================== */
+.well
+{
+	background-color: lightblue;
+}
