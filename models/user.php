@@ -1,5 +1,23 @@
 <?php
 	class UserModel extends Model {
+		private function checkLogin($email, $password, &$userType, &$userId, &$userName, &$status) {
+			$passwd = MD5($password);
+			$this->query('SELECT name, email, status, user_type, u_id from users WHERE email = :email and password = :password');
+			$this->bind(':email', trim($email));
+			$this->bind(':password', trim($passwd));
+			$row = $this->single();
+			if ($row){
+				$status = $row['status'];
+				if ($row['status'] == 0)
+					return false;
+				$userType = $row['user_type'];
+				$userId = $row['u_id'];
+				$userName = $row['name'];
+				return true;
+			}
+			return false;
+		}
+
 		private function mailidExists($mailid) {
 			$this->query('SELECT name, email from registration WHERE email = :email');
 			$this->bind(':email', trim($mailid));
@@ -20,6 +38,7 @@
 			$errMsg =  "";
 			$errCode = 0;
 			$userType = STUDENT;
+			$status = -1;
 			if($post['submit']) {
 				if (Utils::isMailIdValid($post['email']) == false) {
 					$errMsg = "Please enter valid mail id or passowrd.";
@@ -27,22 +46,38 @@
 				} else if ($post['email'] == '' || $post['password'] == '') {
 					$errMsg = "Mail Id or passowrd can't be empty.";
 					$errCode = 2;					
-				} else {
+				} else if (strlen($post['email']) < 8  || strlen($post['email']) > 32 ||strlen($post['password']) < 8  || strlen($post['password']) > 32 ) {
+					$errMsg = "Email and Password length should be between 8 to 32";
+					$errCode = 3;					
+				} else if ($this->checkLogin($post['email'], $post['password'], $userType, $userId, $userName, $status) == true){
 					// check from DB if user is active and its password matches
 					$errCode = 0;
+					$errMsg = "";					
+				} else {
+					// check from DB if user is active and its password matches
+					$errCode = 1;
 					$errMsg = "Password or email didn't match.";
 				}
 
 				if ($errCode != 0){
 					Messages::setMsg($errMsg, 'error');
 				} else {
+					// check to redirect to register or dashboard
 					$_SESSION['is_logged_in'] = true;
+					$_SESSION['user_data'] = array(
+						"uid"	=> $userId,
+						"name"	=> $userName,
+						"email"	=> $post['email']
+					);
 					$loc = "Location: ".ROOT_URL;
 					if ($userType == TUTOR)
 						$loc .= "tutor";
 					else 
 						$loc .= "stud";
-					$loc .= "/dashboard";
+					if ($status == 1)
+						$loc .= "/register";
+					else
+						$loc .= "/dashboard";
 					header($loc);
 				}
 			}
@@ -61,10 +96,12 @@
 			// check if activation id exists in table if yes, 
 			// check if id has not expired, if yes
 			// set data as activated, move details to user table
-			$message = 'Your account is successfully activated. Click continute button to login.';
+			$modelData = array('error' => 0,
+				'message' => 'Your account is successfully activated. Click continute button to login.');
 
 			if ($id == '') {
-				$message = "Invalid Activation Code or Expired.";
+				$modelData['error'] = 1;
+				$modelData['message'] = "Invalid Activation Code or Expired.";
 			} else {
 				$this->query('Select * from registration WHERE activation_url = :actv_url');
 				$this->bind(':actv_url', trim($id));
@@ -74,6 +111,7 @@
 					$password = $row['password'];
 					$userType = $row['user_type'];
 					$mobile = $row['mob_number'];
+					$name = $row['name'];
 					$uid = $userType. sprintf('%06d',$row['id']);
 					//check time stamp;
 					//$message .= "email=".$email."password=".$password."userType=".$userType."mobile=".$mobile;
@@ -88,7 +126,8 @@
 						$this->single();
 						// insert user table
 						//$this->query("INSERT INTO users (email, password, user_type, mob_number, status, ac_creation_date, u_id) VALUES('sandeep', 'password', 'T', 'mobno', 1, '2016-07-06 21:43:52', 'T0000004')");
-						$this->query("INSERT INTO users (email, password, user_type, mob_number, status, ac_creation_date, u_id) VALUES(:email, :password, :usertype, :mobno, 1, :createdate, :uid)");
+						$this->query("INSERT INTO users (name, email, password, user_type, mob_number, status, ac_creation_date, u_id) VALUES(:name, :email, :password, :usertype, :mobno, 1, :createdate, :uid)");
+						$this->bind(':name', $name);
 						$this->bind(':email', $email);
 						$this->bind(':password', $password);
 						$this->bind(':usertype', $userType);
@@ -98,16 +137,19 @@
 						$this->execute();
 						// Verify
 						if($this->lastInsertId()){
-							$message = "Account has been successfully activated";
+							$modelData['error'] = 1;
+							$modelData['message'] = "Account has been successfully activated.";
 						}
 					} else {
-						$message = "Activation has expired";
+						$modelData['error'] = 1;
+						$modelData['message'] = "Activation has expired.";
 					}
 				} else {
-					$message = "Invalid Activation Code or Expired.";
+						$modelData['error'] = 1;
+						$modelData['message'] = "Invalid Activation Code or Expired.";
 				}
 			}
-			return $message;
+			return $modelData;
 		}		
 
 		public function register() {

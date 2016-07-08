@@ -19,6 +19,7 @@
 		protected function logout() {
 			echo "<h1>Controller User->logout() called";
 			unset($_SESSION['is_logged_in']);
+			unset($_SESSION['user_data']);
 			session_destroy();
 			// Redirect
 			header('Location: '.ROOT_URL);

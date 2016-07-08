@@ -14,10 +14,15 @@
 
 		public function __construct() {
 			$this->links[0] = ROOT_URL.'/img/tick.png';
+			$this->links[1] = ROOT_URL.'/user/login';
 		}
 
-		public function setMessage($msg) {
+		public function setMessage($error, $msg) {
 			$this->message = $msg;
+			if ($error != 0) {
+				$this->links[0] = ROOT_URL.'/img/wrong.png';
+				$this->links[1] = ROOT_URL.'/home/index';
+			}
 		} 
 
 		public function display()
@@ -47,7 +52,7 @@
   		<h2>{$this->message}</h2>
     </div>
 		
-		<a href="#" class="btn btn-info btn-lg col-md-4 col-md-offset-4">
+		<a href="{$this->links[1]}" class="btn btn-info btn-lg col-md-4 col-md-offset-4">
       <span class="glyphicon glyphicon-ok " style="text-align: center;"></span> Ok
     </a>
   </div>
@@ -62,6 +67,6 @@ PAGEDOC;
 		}
 	}
 	$obj= new register_ack_view();
-	$obj->setMessage($viewmodel);
+	$obj->setMessage($viewmodel['error'], $viewmodel['message']);
 	$obj->display();
 ?>	

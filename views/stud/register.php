@@ -34,18 +34,17 @@ class student_reg_view
  
 <div class = "panel panel-primary" style="width: 60%; margin: auto;">
 <div class = "panel-heading" style="font-size: 1.5em;">
-          STUDENT REGISTRATION'S FORM
+          COMPLETE YOUR PROFILE
         </div>
   <br>
       <form class="form-horizontal" action="doRegister.php" method="post">
               <div class="form-group" >
               <label for="nameField" class="col-md-4 col-xs-2" style="padding-left: 2em;"> Name</label>
               <div class="col-md-5 col-xs-4">
-                <input type="text" class = "form-control" id = "nameField" placeholder="Your name" name="fieldName" required />
+                <input type="text" class = "form-control" id = "nameField" placeholder="Your name" readonly />
               </div>
               </div>
-              <div class="form-group">
-              
+              <div class="form-group">              
               <label for="gender" class="col-md-4 col-xs-2" style="padding-left: 2em;">Gender</label>
                 <label class= "col-md-3 col-xs-2">   
                   Male <input class="col-md-3 col-xs-4" type="radio" value="Male" name = "gender"/>
@@ -53,8 +52,7 @@ class student_reg_view
                
                 <label class= "col-md-3 col-xs-2">   
                   Female <input class="col-md-3 col-xs-4" type="radio" value="Female" name = "gender">
-                </label>
-               
+                </label>               
               </div>
 
               <div class="form-group" >
@@ -113,29 +111,13 @@ class student_reg_view
                 <input type="text" class = "form-control" id = "pincode" placeholder="Pincode" name="fieldPincode" required />
               </div>
               </div>
-                <div class="form-group">
-              <label for="emailField" class="col-md-4 col-xs-2" style="padding-left: 2em;"> Email-id</label>
-              <div class="col-md-5 col-xs-4">
-                <input type="email" class = "form-control" id = "emailField" placeholder="Your email-id" name="fieldEmail" required/>
-              </div>
-              </div>
-                <div class="form-group">
-              <label for="passField" class="col-md-4 col-xs-2" style="padding-left: 2em;"> Password</label>
-              <div class="col-md-5 col-xs-4">
-                <input type="password" class = "form-control" id = "passField" placeholder="Password" name="fieldPassword" required/>
-              </div>
-              </div>
-
-<div class="panel-footer">
-            
-            <button type = "submit" class="btn btn-primary btn-sm" onsubmit="return validateall()" style="width: 10em;">Submit </button>
-            
-          
+      <div class="panel-footer">            
+            <button type = "submit" class="btn btn-primary btn-sm" onsubmit="return validateall()" style="width: 10em;">Submit </button>          
       </div>
 
-              </form>
-      </div>
+    </form>
   </div>
+</div>
 <?php
     $footer = new BFooter();
     $footer->addScript('<script src="/mtutor/js/jquery.sumoselect.js"></script>');

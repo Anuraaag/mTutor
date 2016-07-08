@@ -42,7 +42,7 @@
             <div class="form-group">
               <label for="emailField" class="col-xs-3 col-md-3">Email</label>
                 <div class="col-xs-10 col-md-10">
-                  <input type="email" class="form-control" id="email" name="email" placeholder="Your Email" maxlength ="20" minlength="8" required />
+                  <input type="email" class="form-control" id="email" name="email" placeholder="Your Email" maxlength ="32" minlength="8" required />
                 </div>
             </div>
             <div class="form-group">            
