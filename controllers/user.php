@@ -47,7 +47,30 @@
 			$this->returnView($viewModel->activate($actnStr), true);
 			return;
 		}
-		
+
+		protected function getsubjectlist() {
+			$viewModel = new UserModel();
+			// read the subject search query string
+			$qs = $_GET['id'];
+			$this->returnView($viewModel->getsubjectlist($qs), true);
+			return;			
+		}
+
+		protected function getclasslist() {
+			$viewModel = new UserModel();
+			// read the subject search query string
+			$qs = $_GET['id'];
+			$this->returnView($viewModel->getclasslist($qs), true);
+			return;			
+		}
+
+		protected function getarealist() {
+			$viewModel = new UserModel();
+
+			$qs = $_GET['id'];
+			$this->returnView($viewModel->getarealist($qs), true);
+			return;
+		}
 	}
 ?>
 

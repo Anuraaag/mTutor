@@ -1,4 +1,5 @@
 <?php
+
 	class UserModel extends Model {
 		private function checkLogin($email, $password, &$userType, &$userId, &$userName, &$status) {
 			$passwd = MD5($password);
@@ -9,6 +10,7 @@
 			if ($row){
 				$status = $row['status'];
 				if ($row['status'] == 0)
+
 					return false;
 				$userType = $row['user_type'];
 				$userId = $row['u_id'];
@@ -33,6 +35,7 @@
 			}
 			return false;
 		}
+
 		public function login(){
 			$post = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
 			$errMsg =  "";
@@ -84,11 +87,86 @@
 			return;
 		}
 
-		public function forget(){
-			return;
+		public function forget()
+		{
+			$post = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+			$errMsg =  "";
+			$errCode = 0;
+			$userType = STUDENT;
+			$status = -1;
+			if($post['submit']) {
+				if ($post['email'] == '') {
+					$errMsg = "Mail Id can't be empty.";
+					$errCode = 1;					
+				}
+			} 
+			
+			if ($this->mailidExists($post['email']) == true){
+				$reseturl = Utils::struuid(true);
+				$email = $post['email'];
+				$verificationLink = ROOT_URL.'user/reset/'.$reseturl;
+				$this->query('INSERT INTO forgot_pw (email, reset_url, expiry_date) VALUES (:email,  NULL)');
+				$this->bind(':name', $name);
+				$this->bind(':email', $email);
+				return true;
+			}
+
+			else{
+					$errMsg = "The Email id is not registered";
+					$errCode = 2;
+					return false;
+				}
+
+
 		}
 		
 		public function changepwd() {
+			$post = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+			$errMsg =  "";
+			$errCode = 0;
+			$userType = STUDENT;
+			$status = -1;
+			$email = $_SESSION['user_data']['email'];
+			$uid = $_SESSION['user_data']['uid'];
+			$name = $_SESSION['user_data']['name'];
+			$newpw1 = $post['newpw1'];
+			
+
+			if($post['submit']) {
+
+				print_r($post);
+
+				if ($post['oldpw'] == "" || $post['newpw1'] == "" || $post['newpw2'] == "" ) {
+					$errMsg = "Please fill up all the fields.";
+					$errCode = 1;
+				}
+				else if ($post['newpw1']!=$post['newpw2']) {
+					$errMsg = "New Password doesn't match. Try Again";
+					$errCode = 2;
+				}
+				else if($this->checkLogin($email, $post['oldpw'], $userType,$uid , $name, $status) == true) {
+
+					$stmt = 'UPDATE users SET password = :password  WHERE email = :email ';
+					$this->query($stmt);
+					$this->bind(':password', trim(MD5($newpw1)));
+					$this->bind(':email', trim($email));
+					$this->execute();
+					$errMsg = "Password has been reset.";
+					$errCode = 0;
+				}
+				else
+				{
+					$errMsg = "Please check the old password again.";
+					$errCode = 3;
+				}
+
+			}
+			if ($errCode != 0){
+					Messages::setMsg($errMsg, 'error');
+				}
+				else {
+					Messages::setMsg($errMsg,'success');
+				}	
 			return;
 		}		
 
@@ -114,7 +192,7 @@
 					$name = $row['name'];
 					$uid = $userType. sprintf('%06d',$row['id']);
 					//check time stamp;
-					//$message .= "email=".$email."password=".$password."userType=".$userType."mobile=".$mobile;
+					//$modelData['message'] .= "email=".$email."password=".$password."userType=".$userType."mobile=".$mobile;
 					//$message .=implode(" ",$row);
 					$activation_time = strtotime($row['ac_creation_date']);
 					$curtime = time();
@@ -124,6 +202,7 @@
 						$this->query('Update registration SET active_status = 1 WHERE activation_url = :actv_url');
 						$this->bind(':actv_url', trim($id));
 						$this->single();
+						$datetime = date("Y-m-d H:i:s");
 						// insert user table
 						//$this->query("INSERT INTO users (email, password, user_type, mob_number, status, ac_creation_date, u_id) VALUES('sandeep', 'password', 'T', 'mobno', 1, '2016-07-06 21:43:52', 'T0000004')");
 						$this->query("INSERT INTO users (name, email, password, user_type, mob_number, status, ac_creation_date, u_id) VALUES(:name, :email, :password, :usertype, :mobno, 1, :createdate, :uid)");
@@ -132,13 +211,17 @@
 						$this->bind(':password', $password);
 						$this->bind(':usertype', $userType);
 						$this->bind(':mobno', $mobile);
-						$this->bind(':createdate', date("Y-m-d H:i:s"));
+						$this->bind(':createdate', $datetime);
 						$this->bind(':uid', $uid);
-						$this->execute();
+						$res = $this->execute();
 						// Verify
-						if($this->lastInsertId()){
-							$modelData['error'] = 1;
+						if($res){
+							$modelData['error'] = 0;
 							$modelData['message'] = "Account has been successfully activated.";
+						} else {
+							$modelData['error'] = 1;
+							$modelData['message'] = "Failed to Activate. Database error.";
+							//$modelData['message'] .= "res=".$res."name=".$name."email=".$email."<br>password=".$password."<br>userType=".$userType."<br>mobile=".$mobile."datetime=".$datetime;
 						}
 					} else {
 						$modelData['error'] = 1;
@@ -171,26 +254,77 @@
 				} else {
 					// check name, user and other fields have lengths within limits
 					$passwd = MD5($post['fieldPassword']);
-					$activeurl = struuid(true);
+					$activeurl = Utils::struuid(true);
 					$userType = Utils::getUserType($post['user']);
-					$this->query('INSERT INTO registration (name, email, password, user_type, activation_url, active_status) VALUES(:name, :email, :password, :usertype, :actv_url, :active_status)');
-					$this->bind(':name', trim($post['fieldName']));
-					$this->bind(':email', trim($post['fieldEmail']));
-					$this->bind(':password', $passwd);
-					$this->bind(':usertype', $userType);
-					$this->bind(':actv_url', $activeurl);
-					$this->bind(':active_status', 0);
-					$this->execute();
-					// Verify
-					if($this->lastInsertId()){
-						Messages::setMsg('Thanks for registering us. Please check your mail for activation url', 'success');
-						return;
-					} 
-					Messages::setMsg('There is some registration error, please try after some time or contact our support team.', 'error');									
+
+					//prepare verification email body
+					$verificationLink = ROOT_URL.'user/activate/'.$activeurl;
+					$htmlStr = "";
+					$htmlStr .= "Hi ".$post['fieldName'].", <br/><b/>";
+					$htmlStr .= "Please click the link below to verify your account.<br/><br/><br/>";
+					$htmlStr .= "<a href='{$verificationLink}' target='_blank' style='padding:1em; font-weight:bold; background-color:blue; color:#fff;'>VERIFY EMAIL</a><br/><br/><br/>";
+					$htmlStr .= "Thanks,<br/>";
+					$htmlStr .= '<a href='.ROOT_URL.' target="_blank">mTutor HomePage</a><br />';
+					
+					$from = 'tutor.rohini@gmail.com';
+					$to = 'tutor.rohini@gmail.com';
+					$sub = 'mTutor Verification Link | Registration';
+					$body = $htmlStr;
+					$altbody = 'This is the body in plain text for non-HTML mail clients';
+
+					//Send email
+					if( true /*Utils::sendMail($from, $to, $sub, $body, $altbody ) */ ) {
+						$this->query('INSERT INTO registration (name, email, password, user_type, activation_url, active_status) VALUES(:name, :email, :password, :usertype, :actv_url, :active_status)');
+						$this->bind(':name', trim($post['fieldName']));
+						$this->bind(':email', trim($post['fieldEmail']));
+						$this->bind(':password', $passwd);
+						$this->bind(':usertype', $userType);
+						$this->bind(':actv_url', $activeurl);
+						$this->bind(':active_status', 0);
+						$this->execute();
+						// Verify
+						if($this->lastInsertId()){
+							Messages::setMsg('Thanks for registering us. Please check your mail for activation url', 'success');
+						} else {
+							Messages::setMsg('There is some registration error, please try after some time or contact our support team.', 'error');
+						}
+					} else {
+						Messages::setMsg('There is some registration error, please try after some time or contact our support team.', 'error');
+					}
+					
 				}
 			} 			
 			return;
-		}		
+		}
+
+		public function getsubjectlist($qs) {
+			//echo $qs."<br>";
+			//$this->query('SELECT * FROM  sub_master WHERE sub_name LIKE "%Hi%" LIMIT 0 , 30');
+			//"SELECT * FROM `sub_master` WHERE sub_name LIKE (\'%Hi%\') LIMIT 0 , 30";
+			$sqlstr = 'SELECT * FROM  sub_master WHERE sub_name LIKE "' . $qs. '%" LIMIT 0 , 30';
+			$this->query($sqlstr);
+			//$this->bind(':search', trim($qs));
+			$rows = $this->resultSet();
+			return $rows;
+		}			
+
+		public function getclasslist($qs) {
+			//echo $qs."<br>";
+			$sqlstr = 'SELECT * FROM  class_master WHERE class_name LIKE "' . $qs. '%" LIMIT 0 , 30';
+			$this->query($sqlstr);
+			$rows = $this->resultSet();
+			return $rows;
+		}
+		
+		public function getarealist($qs) {
+			//echo $pin."<br>";
+			$sqlstr = 'SELECT * from pincode WHERE pincode = :pincode';
+			$this->query($sqlstr);
+			$this->bind(':pincode', trim($qs));
+			$rows = $this->resultSet();
+			return $rows;
+		}
+
 	}
 ?>
 

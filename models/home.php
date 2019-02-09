@@ -39,4 +39,8 @@ class HomeModel extends Model{
 	public function landing(){
 		return;
 	}
+
+	public function howitworks() {
+		return;
+	}
 }

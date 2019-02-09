@@ -16,10 +16,10 @@
 		public function display()
 		{
 			$pagestr = <<< MSGDOC
-<div class="alert alert-danger fade in">
-    <a href="#" class="close" data-dismiss="alert">&times;</a>
-    <strong>Error!</strong> $this->msg
-</div>
+			<div class="alert alert-danger fade in">
+			    <a href="#" class="close" data-dismiss="alert">&times;</a>
+			    <strong>Error!</strong> $this->msg
+			</div>
 MSGDOC;
 			echo $pagestr;
 		}

@@ -7,7 +7,12 @@
 	
 	class changepwview
 	{
-		 private $title = "mtutor - change password";       	 
+		 private $title = "mtutor - change password";
+		 private $links = array();
+      	 public function __construct() {
+	        $this->links[0] = ROOT_URL.'user/changepwd';
+	             
+      }       	 
 
 		public function display()
 		{		   
@@ -18,12 +23,15 @@
        			$bodyheader = new Bheader();
         		$bodyheader->display();
 
-		   $showpage = <<<PAGEDOC
-<div class="container content" >
+        $showPage = '<div class="container content">';
+        Messages::display();
+
+        $showPage .= <<<PAGECONTENT
+
 	<br><h3 style="font-size: 30px" class="col-md-4 col-md-offset-1">Change Your Password</h3>
 	<div class=" col-md-6 col-md-offset-3 col-xs-12 col-sm-12">
 		<div style="padding: 10px 10px 10px 10px; border-color: red">
-		<form class="form-horizontal" action="dologin.php" method="post" name="form1" >
+		<form class="form-horizontal" action="{$this->links[0]}" method="post" name="form1" >
 			<div class="panel panel-default ">
 				<div class="panel-heading" style="height: 70px; font-size: 20px">
 					Set Your New Password:
@@ -38,18 +46,18 @@
 						<div class="form-group">						
 							<label for="password" class="col-xs-9 col-md-5">Enter New Password</label>
 								<div class="col-xs-8 col-md-8" style="width:250px; ">
-									<input type="password" class="form-control" id="newpw" name="newpw" placeholder="NEW Password" maxlength ="20" minlength="8" required/>
+									<input type="password" class="form-control" id="newpw1" name="newpw1" placeholder="NEW Password" maxlength ="20" minlength="8" required/>
 								</div>
 						</div>			
 						<div class="form-group">						
 							<label for="password" class="col-xs-9 col-md-5">Confirm New Password</label>
 								<div class="col-xs-8 col-md-8" style="width:250px;">
-									<input type="password" class="form-control" id="password" name="password" placeholder="NEW Password" maxlength ="20" minlength="8" required/>
+									<input type="password" class="form-control" id="newpw2" name="newpw2" placeholder="NEW Password" maxlength ="20" minlength="8" required/>
 								</div>
 						</div>			
 				</div>
 				<div class="panel-footer">
-					<span><button type="button" class="btn btn-primary btn-md col-xs-offset-1 col-md-offset-3" style="text-align: center" onclick="check()" >Confirm</button>
+					<span><button type="submit" class="btn btn-primary btn-md col-xs-offset-1 col-md-offset-3" name="submit" value="submit" style="text-align: center" onclick="check()" >Confirm</button>
 					<button type="button" class="btn btn-default btn-md col-xs-offset-2 col-md-offset-2">Cancel</button></span>
 				</div>
 			</div>
@@ -57,13 +65,13 @@
 		</div>		
 	</div>
  </div>
-PAGEDOC;
-		echo $showpage;
+PAGECONTENT;
+		echo $showPage;
   		$footer = new BFooter();
 $script = '<script>
 function check()
 {
-	if(document.getElementById("password").value == document.getElementById("newpw").value)
+	if(document.getElementById("newpw1").value == document.getElementById("newpw2").value)
 	{
 		document.forms.form1.submit();
 	}

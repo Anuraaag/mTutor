@@ -5,12 +5,6 @@
     private $links = array();
     private $jScripts = array();
 
-    private $jScriptsInc = array();
-
-    function setScriptsInc(array $jScriptsInc_list) {
-    	$this->jScriptsInc = $jScriptsInc_list;
-    }
-
     public function __construct() {
       $this->links[0] = ROOT_URL.'home/faq';
       $this->links[1] = ROOT_URL.'home/contact';
@@ -113,14 +107,8 @@
   </footer>
   <!-- End Footer -->
   <script src="/mtutor/js/jquery.js"></script>
-<script src="/mtutor/js/jquery-1.12.4.js"></script>
   <script src="/mtutor/js/bootstrap.js"></script> 
 PAGECONTENT;
-
-    foreach ($this->jScriptsInc as $val){
-        $tempStr= '<script type="text/javascript" src="/mtutor/js/'.$val.'.js"></script>';
-        $showPage.= $tempStr;
-    }
 
     echo $showPage;
     foreach ($this->jScripts as $val){

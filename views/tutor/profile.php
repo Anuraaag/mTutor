@@ -5,45 +5,48 @@
   include_once ('inc/bfooter.php');
 
 	
-	class private_prof
-	{
-		 private $title = "mtutor - Private Profile";
-		 private $links = array();
-		 private $pk;
+class private_prof
+{
+	 private $title = "mtutor - Private Profile";
+	 private $links = array();
+	 private $pk;
 		 	
-		 public function __construct() {
-		   $this->links[0] = ROOT_URL.'img/pro_pic.png';
-		   $this->links[1] = ROOT_URL.'views/tutor/doprofile.php';
+	 public function __construct() {
+	   $this->links[0] = ROOT_URL.'img/pro_pic.png';
+	   $this->links[1] = ROOT_URL.'views/tutor/doprofile.php';
 		   
-		   //TODO.. get pk from tutor table
-		   $this->pk='t1234';
-		 }
+	   //TODO.. get pk from tutor table
+	   $this->pk='t1234';
+	 }
        	 
 
-		public function display()
-		{		   
-			 	$headpage = new header();
-        		$headpage->setTitle($this->title);
-				if (config::$debug == TRUE)
-				  $headpage->setstyles(array("bootstrap", "mtutor", "font-awesome", "timeslot_css", "bootstrap-editable"));
-				else
-				  $headpage->setstyles(array("bootstrap.min", "mtutor.min", "font-awesome.min", "timeslot_css.min", "bootstrap-editable.min"));
+	function display() {
+		$headpage = new header();
+		$headpage->setTitle($this->title);
+		if (config::$debug == TRUE)
+		  $headpage->setstyles(array("bootstrap", "mtutor", "font-awesome", "timeslot_css", "bootstrap-editable"));
+		else
+		  $headpage->setstyles(array("bootstrap.min", "mtutor.min", "font-awesome.min", "timeslot_css.min", "bootstrap-editable.min"));
         		
-        		$headpage->display();
-       			$bodyheader = new Bheader();
-        		$bodyheader->display();
+		$headpage->display();
+		$bodyheader = new Bheader();
+		$bodyheader->display();
 
-		   $showpage = <<<PAGEDOC
-<body>
+                $showpage = <<<PAGEDOC
+
 	<div class="container content">
+	 <div class="panel panel-default" style="border-bottom: none;">
+	 <div class="panel panel-primary">
+	 <div class="panel-heading ">Your profile</div>
+	 </div>
 		<div class="row">							
 			<div class="col-md-3 col-md-offset-2" style="margin-top:80px">
 					<div class="col-md-10">
-						<img src="\mtutor\ui\pro_pic.jpg" class="col-md-offset-2 img-thumbnail img-responsive" alt="profile photo">
+						<img src="\mtutor\ui\pro_pic.jpeg" class="col-md-offset-2 img-thumbnail img-responsive" alt="profile photo">
 						<a href="#"> </a>
 					</div>
 
-					<div class="col-md-8 col-md-offset-2" >Tutor's Rating:<br>
+					<div class="col-md-8 col-md-offset-2" >Your Rating:<br>
 						<span class="fa fa-star"> </span>
 						<span class="fa fa-star"></span>
 						<span class="fa fa-star"></span>
@@ -320,13 +323,15 @@
 				</div>
 				
 		</div>
+	</div>
 PAGEDOC;
 		echo $showpage;
   		$footer = new BFooter();
+
 		if (config::$debug == TRUE)
-		  $footer->setScriptsInc(array("bootstrap-editable"));
+		  $footer->addScript('<script src="/mtutor/js/bootstrap-editable.js"></script>');
 		else
-		  $footer->setScriptsInc(array("bootstrap-editable.min"));
+		  $footer->addScript('<script src="/mtutor/js/bootstrap-editable.min.js"></script>');
 
 $script = <<<SCRIPTDOC
 <script>

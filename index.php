@@ -3,6 +3,7 @@
 	session_start();
 
 	// includes
+	require_once('inc/KLogger.php');
 	include ('inc/config.php');
 	include ('inc/utils.php');
 	include ('classes/messages.php');
@@ -19,6 +20,7 @@
 	include ('models/tutor.php');
 	include ('models/stud.php');
 	include ('models/modt.php');
+
 
 	$mainPage = new Main($_GET);
 	$controller = $mainPage->createController(); 

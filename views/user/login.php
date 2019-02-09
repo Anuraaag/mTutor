@@ -28,11 +28,12 @@
         $bodyheader->display();
 
         $showPage = '<div class="container content">';
+        echo $showPage;
         Messages::display();
 
-        $showPage .= <<<PAGECONTENT
+        $showPage = <<<PAGECONTENT
   <div class="col-md-4 col-md-offset-8 col-xs-12 col-sm-12">
-    <div style="padding: 30px 30px 30px 30px">
+    <div style="padding: 10px 30px 30px 30px">
     <form class="form-horizontal" action="{$this->links[2]}" method="post">
       <div class="panel panel-default">
         <div class="panel-heading">

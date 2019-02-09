@@ -1,7 +1,7 @@
 <?php
 
 	require "message1.php";
-	
+
 	class loginview
 	{
 		public function display()
@@ -86,9 +86,6 @@ PAGEDOC;
                         <button class="btn btn-default" type="submit">Submit</button>
                 </form>                      
             </div> <!-- end container -->
-
-
-
 
 	<script src="/mtutor/js/jquery-1.12.4.js"></script>
 	<script src="/mtutor/js/bootstrap.js"></script>	

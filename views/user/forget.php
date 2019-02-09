@@ -55,7 +55,7 @@ PAGEDOC;
 
 				<div class="panel-footer" style="height:60px">
 				  <span class="col-md-3">
-					<button type="submit" class="btn btn-primary">Submit</button>					
+					<button type="submit" name="submit" class="btn btn-primary">Submit</button>					
 				  </span>
 				</div>
 			</div>

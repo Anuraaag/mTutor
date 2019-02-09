@@ -34,5 +34,11 @@
 			$viewModel = new HomeModel();
 			$this->returnView($viewModel->landing(), true);						
 		}
+
+		protected function howitworks() {
+			$viewModel = new HomeModel();
+			$this->returnView($viewModel->howitworks(), true);						
+			return;
+		}
 	}
 ?>

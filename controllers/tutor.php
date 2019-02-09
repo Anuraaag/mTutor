@@ -1,40 +1,40 @@
 <?php
 	class Tutor extends Controller {
-		protected function Register() {
+		protected function register() {
+			if(!isset($_SESSION['is_logged_in'])){
+				header('Location: '.ROOT_URL.'user/login');
+			} else {
+				$viewModel = new TutorModel();
+				$this->returnView($viewModel->Register(), true);
+			}
+			return;
+		}
+
+		protected function register2() {
 			$viewModel = new TutorModel();
-			$this->returnView($viewModel->Register(), true);
+			$this->returnView($viewModel->register2(), true);
+			return;
 		}
-
-		protected function Register1() {
+		
+		protected function sendMessage() {
 			$viewModel = new TutorModel();
-			$this->returnView($viewModel->Register1(), true);
+			$this->returnView($viewModel->sendMessage(), true);
 		}
 
-		protected function Register2() {
-			echo "<h1>Register2 called</h2>";
-			//$viewModel = new TutorModel();
-			//$this->returnView($viewModel->Register2(), true);
-		}
-
-		protected function SendMessage() {
+		protected function dashBoard() {
 			$viewModel = new TutorModel();
-			$this->returnView($viewModel->SendMessage(), true);
+			$this->returnView($viewModel->dashBoard(), true);
 		}
 
-		protected function DashBoard() {
-			$viewModel = new TutorModel();
-			$this->returnView($viewModel->DashBoard(), true);
-		}
-
-		protected function Search() {
+		protected function search() {
 			$viewModel = new TutorModel();
 			$this->returnView($viewModel->search(), true);
 			return;
 		}
 
-		protected function Profile() {
+		protected function profile() {
 			$viewModel = new TutorModel();
-			$this->returnView($viewModel->Profile(), true);
+			$this->returnView($viewModel->profile(), true);
 			return;
 		}
 

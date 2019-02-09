@@ -2,12 +2,14 @@
 	abstract class Model {
 		protected $dbh;
 		protected $stmt;
+		protected $logger;
 
 		public function __construct(){
 			$this->dbh = new PDO("mysql:host=".DB_HOST.";dbname=".DB_NAME, DB_USER, DB_PASS);
+			$this->logger = new KLogger(ROOT_PATH."logs/mtutor.log" , KLogger::INFO );
 			
-			if(config::$debug == TRUE)
-				$this->dbh->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
+			//if(config::$debug == TRUE)
+			//	$this->dbh->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
 		}
 
 
@@ -37,9 +39,12 @@
 		}
 
 		public function execute() {
-			$this->stmt->execute();
+			//$this->stmt->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );  
+			$res = $this->stmt->execute();
 			//return $this->stmt->debugDumpParams();
-			return;
+			//print_r($this->stmt->errorInfo()); 
+			$this->logger->LogInfo(json_encode($this->stmt->errorInfo()));
+			return $res;
 		}
 
 		public function resultSet() {
@@ -53,6 +58,8 @@
 
 		public function single(){
 			$this->execute();
+			$this->logger->LogInfo(json_encode($this->stmt->errorInfo()));
+			//print_r($this->stmt->errorInfo());
 			return $this->stmt->fetch(PDO::FETCH_ASSOC);
 		}
 

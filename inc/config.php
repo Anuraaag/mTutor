@@ -6,7 +6,7 @@ define("DB_PASS", "root123");
 define("DB_NAME", "mtutor");
 
 // Define URL
-define("ROOT_PATH", "/mtutor/");
+define("ROOT_PATH", "C://wamp64/www/mtutor/");
 define("ROOT_URL", "http://localhost/mtutor/");
 define("TUTOR", "T");
 define("STUDENT", "S");
@@ -15,6 +15,8 @@ class config {
 	public static $debug = TRUE;
 	private static $base_uri = ".";
 	private static $logging_enabled = FALSE;
+	$cfg['Servers'][$i]['password'] = ''; to $cfg['Servers'][$i]['password']  = 'yourPassHere';
+
 
 	static function setdebugflag(){
 		//ini_set("error_log", "/tmp/php-error.log");
